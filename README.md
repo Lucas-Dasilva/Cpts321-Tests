@@ -8,4 +8,4 @@ Class: Cpts 321
 
 Teacher: Venera
 
-Desc: All HW Assignments
+Desc: All In class Assignments
