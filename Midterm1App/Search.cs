@@ -24,5 +24,17 @@ namespace Midterm1App
             return pList;
         }
 
+        /// <summary>
+        /// The last search performed will be saved to a file in a subdirectory of the project
+        /// called "searches"
+        /// if the search was performed at 8:34:30pm on February 4, 2021 the filename would be “2021-02-04-20h34m30s.txt”
+        /// The first line of the file should contain the sequences of characters that the employee used for
+        /// the search and whether it was an AND or OR search if applicable
+        /// The rest of the file, i.e., starting from line 2, must contain the result of the search as it was shown to the employee. 
+        /// </summary>
+        public bool SaveSearch(string searchDate)
+        {
+            return false;
+        }
     }
 }

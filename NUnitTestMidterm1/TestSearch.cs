@@ -37,6 +37,16 @@ namespace Midterm1App
 
             Assert.AreEqual(searchResult, productList);
         }
+        /// <summary>
+        /// Test save search if it returns tru as in the file was created succesffuly
+        /// </summary>
+        [Test]
+        public void TestSaveSearch()
+        {
+            Search search = new Search();
+            string filename = "2021-02-04-20h34m30s";
+            Assert.IsTrue(search.SaveSearch(filename));
+        }
 
     }
 }

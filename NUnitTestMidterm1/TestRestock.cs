@@ -21,7 +21,6 @@ namespace Midterm1App
         [Test]
         public void TestFilterList()
         {
-
         }
 
     }
