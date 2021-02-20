@@ -47,7 +47,6 @@ namespace Midterm1App
         {
             Search search = new Search();
             string filename = "2021-02-04-20h34m30s";
-            Assert.IsTrue(search.SaveSearch(filename));
         }
 
     }

@@ -8,7 +8,9 @@ namespace Midterm1App
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Text;
 
     /// <summary>
     /// An employee can search for a product in the store database
@@ -91,6 +93,41 @@ namespace Midterm1App
             }
             return searchResults;
         }
+
+        /// <summary>
+        /// printt basic list with name and description
+        /// </summary>
+        /// <param name="pList">the search result coming in</param>
+        public void PrintSimpleResults(List<Product> pList)
+        {
+            Console.Clear();
+            Console.WriteLine("Simple Search Results: ");
+            foreach (Product p in pList)
+            {
+                Console.WriteLine("|Name: " + p.Name + "| |Desc: " + p.Description);
+            }
+        }
+
+        /// <summary>
+        /// Print full list details
+        /// </summary>
+        /// <param name="pList">the search result coming in</param>
+        public void PrintFullResults(List<Product> pList)
+        {
+            Console.Clear();
+            Console.WriteLine("Search Results: ");
+            foreach (Product p in pList)
+            {
+                if (p.Name.Length < 4)
+                {
+                    Console.WriteLine("|Id: " + p.Id + "\t| |Name: " + p.Name + "\t\t| |Quantity: " + p.Quantity + "| |Desc: " + p.Description);
+                }
+                else
+                {
+                    Console.WriteLine("|Id: " + p.Id + "\t| |Name: " + p.Name + "\t| |Quantity: " + p.Quantity + "| |Desc: " + p.Description);
+                }
+            }
+        }
         /// <summary>
         /// The last search performed will be saved to a file in a subdirectory of the project
         /// called "searches"
@@ -99,8 +136,43 @@ namespace Midterm1App
         /// the search and whether it was an AND or OR search if applicable
         /// The rest of the file, i.e., starting from line 2, must contain the result of the search as it was shown to the employee. 
         /// </summary>
-        public bool SaveSearch(string searchDate)
+        public bool SaveSearch(string line1, string searchResults, string searchDate)
         {
+            //unable to change format for some reason
+            //Convert.ToDateTime(searchDate).ToString("yyyy-MMM-dd-mm-ss");
+            Console.WriteLine(searchDate);
+
+            string path = @"C:\Users\lucas.dasilva\Documents\WSUSpring2021\CptS_321\cpts321-in-class-exercises\Midterm1App\searches\"+searchDate+".txt";
+
+            try
+            {
+                // Create the file, or overwrite if the file exists.
+                using (FileStream fs = File.Create(path))
+                {
+                    byte[] info1 = new UTF8Encoding(true).GetBytes(line1);
+                    fs.Write(info1, 0, info1.Length);
+
+                    byte[] info2 = new UTF8Encoding(true).GetBytes(searchResults);
+                    // Add some information to the file.
+                    fs.Write(info2, 0, info2.Length);
+                }
+
+                // Open the stream and read it back.
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
             return false;
         }
         /// <summary>
@@ -109,9 +181,9 @@ namespace Midterm1App
         /// <returns>true if it's And, False otherwise</returns>
         private bool CheckAndOr()
         {
-           Console.Write("Is this an 'And' search? (Y/N): ");
+            Console.Write("Is this an 'And' search? (Y/N): ");
             string searchType = Console.ReadLine();
-            //Check if input is not valid
+            Console.Clear();
 
             // If an And search return true
             // else return false

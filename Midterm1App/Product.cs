@@ -3,6 +3,8 @@
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
+using System;
+
 namespace Midterm1App
 {
     public class Product
@@ -20,5 +22,7 @@ namespace Midterm1App
             this.Name = name;
             this.Description = description;
         }
+
+
     }
 }
