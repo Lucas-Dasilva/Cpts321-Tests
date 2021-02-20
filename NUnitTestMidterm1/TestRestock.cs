@@ -46,6 +46,27 @@ namespace Midterm1App
             };
             Assert.AreEqual(restock.CheckStock(searchResult, 5), expectedValue); 
         }
+        /// <summary>
+        /// Test restock function
+        /// </summary>
+        [Test]
+        public void TestRestockProducts()
+        {
+
+            List<Product> productList = new List<Product>();
+            productList.Add(new Product(1, "Playstation 5", 0, "The brand new console PS5, where you can play games"));
+            productList.Add(new Product(2, "PlayBoy Magazine", 2, "Newest playboy magazine with Cardi B"));
+
+            Restock restock = new Restock();
+
+            restock.RestockProducts(productList);
+            List<Product> expectedValue = new List<Product>
+            {
+                new Product(1, "Playstation 5", 10, "The brand new console PS5, where you can play games"),
+                new Product(2, "PlayBoy Magazine", 10,  "Newest playboy magazine with Cardi B")
+            };
+            Assert.AreEqual(productList, expectedValue);
+        }
 
     }
 }
