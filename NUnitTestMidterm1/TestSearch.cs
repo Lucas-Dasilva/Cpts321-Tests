@@ -19,10 +19,7 @@ namespace Midterm1App
         /// Use MSDN to help with this
         /// </summary>
         [Test]
-        public void TestFilterList()
-        {
 
-        }
 
     }
 }
