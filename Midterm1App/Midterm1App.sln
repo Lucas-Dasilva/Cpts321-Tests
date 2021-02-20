@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midterm1App", "Midterm1App.csproj", "{2DC4E310-7DFB-4E09-9858-F3A40A93E660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Midterm1App", "Midterm1App.csproj", "{2DC4E310-7DFB-4E09-9858-F3A40A93E660}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestMidterm1", "..\NUnitTestMidterm1\NUnitTestMidterm1.csproj", "{0B2FB6A7-1B53-49A0-8D53-2F9009A60F64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestMidterm1", "..\NUnitTestMidterm1\NUnitTestMidterm1.csproj", "{0B2FB6A7-1B53-49A0-8D53-2F9009A60F64}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2DC4E310-7DFB-4E09-9858-F3A40A93E660} = {2DC4E310-7DFB-4E09-9858-F3A40A93E660}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

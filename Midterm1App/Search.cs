@@ -10,6 +10,10 @@ namespace Midterm1App
     /// </summary>
     public class Search
     {
+        public void findItem(string input)
+        {
+
+        }
 
     }
 }
