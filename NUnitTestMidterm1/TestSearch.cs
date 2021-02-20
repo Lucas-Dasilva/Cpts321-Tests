@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace Midterm1App
 {
+    using System;
     using NUnit.Framework;
     using System.Collections.Generic;
 
@@ -22,6 +23,7 @@ namespace Midterm1App
         [Test]
         public void TestMatchSearch()
         {
+            Console.WriteLine("jsif");
             List<Product> productList = new List<Product>();
             productList.Add(new Product(1, "Playstation 5", 5, "The brand new console PS5, where you can play games"));
             productList.Add(new Product(2, "PlayBoy Magazine", 2, "Newest playboy magazine with Cardi B"));
@@ -29,7 +31,7 @@ namespace Midterm1App
             productList.Add(new Product(4, "Door Mirror", 2, "A mirror designed to be hangned on your wall"));
             productList.Add(new Product(5, "$50 PSN Gift Card", -1, "Giftcard for for PSN store"));
 
-            string input = "play";
+            string input = "play control";
             Search search = new Search();
             List<Product> searchResult = new List<Product>(search.MatchSearch(productList, input));
             productList.RemoveAt(4);

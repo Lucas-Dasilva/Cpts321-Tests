@@ -19,7 +19,6 @@ namespace Midterm1App
         /// Determine time complexity
         /// Use MSDN to help with this
         /// </summary>
-        [Test]
         public void TestCheckStock()
         {
             string input = "control";

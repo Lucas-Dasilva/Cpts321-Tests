@@ -7,11 +7,11 @@ namespace Midterm1App
 {
     public class Product
     {
-        private int Id { get; set; }
+        public int Id { get; set; }
 
-        private int Quantity { get; set; }
-        private string Name { get; set; }
-        private string Description { get; set; }
+        public int Quantity { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
         public Product(int id, string name, int quantity, string description)
         {
@@ -20,6 +20,5 @@ namespace Midterm1App
             this.Name = name;
             this.Description = description;
         }
-        
     }
 }

@@ -3,10 +3,13 @@
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
-using System.Collections.Generic;
 
 namespace Midterm1App
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     /// <summary>
     /// An employee can search for a product in the store database
     /// search should be performed on all possible fields
@@ -20,10 +23,74 @@ namespace Midterm1App
     {
         public List<Product> MatchSearch(List<Product> pList, string input)
         {
-            //if input is empty sequence of characters return List
-            return pList;
-        }
+            List<Product> searchResults = new List<Product>();
+            // if input is empty sequence of characters return List
+            // if input is only digits (User using id of product to check inventory)
+            // else input is sequence of strings
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return pList;
+            }
+            if (this.IsDigitsOnly(input))
+            {
+                foreach (Product p in pList)
+                {
+                    // add product to search result if the id matches
+                    if (p.Id.ToString() == input)
+                    {
+                        searchResults.Add(p);
+                    }
+                }
+            }
+            else
+            {
+                input = input.ToUpper();
+      
+                if (input.Contains(" "))
+                {
+                    // And (all tokens must be present in each product)
+                    // Or (at least one of the tokens must be present in each product)
+                    string[] tokenList = input.Split(' ');
 
+                    // if it's an 'Or' Search
+                    // else Do an 'And' search
+                    if (!this.CheckAndOr())
+                    {
+                        foreach (Product p in pList)
+                        {
+                            // if any string in token list is inside either Name or description
+                            if (tokenList.Any(p.Name.ToUpper().Contains) || tokenList.Any(p.Description.ToUpper().Contains))
+                            {
+                                searchResults.Add(p);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (Product p in pList)
+                        {
+                            // if the string input is inside either Name or description
+                            if (tokenList.All(p.Name.ToUpper().Contains) || tokenList.All(p.Description.ToUpper().Contains))
+                            {
+                                searchResults.Add(p);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (Product p in pList)
+                    {
+                        // if the string input is inside either Name or description
+                        if (p.Name.ToUpper().Contains(input) || p.Description.ToUpper().Contains(input))
+                        {
+                            searchResults.Add(p);
+                        }
+                    }
+                }
+            }
+            return searchResults;
+        }
         /// <summary>
         /// The last search performed will be saved to a file in a subdirectory of the project
         /// called "searches"
@@ -36,5 +103,45 @@ namespace Midterm1App
         {
             return false;
         }
+        /// <summary>
+        /// Helper function to ask user if it is an And or an Or search
+        /// </summary>
+        /// <returns>true if it's And, False otherwise</returns>
+        private bool CheckAndOr()
+        {
+           Console.Write("Is this an 'And' search? (Y/N): ");
+            string searchType = Console.ReadLine();
+            //Check if input is not valid
+
+            // If an And search return true
+            // else return false
+            if (searchType == "y" || searchType == "Y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// Checks if input is only digits
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>true if only digits</returns>
+        private bool IsDigitsOnly(string str)
+        {
+            // scroll through string, look for non digits
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
     }
 }
