@@ -25,7 +25,6 @@ namespace Midterm1App
             productList.Add(new Product(3, "Control", 2, "Play the Control on new generation of consoles"));
 
             Assert.IsTrue(productList.Count == 3);
-
         }
 
     }
