@@ -16,45 +16,48 @@ namespace Midterm1App
         {
             // Menu options
             string prompt = "(Use arrow keys to cycle through options and press enter to select it)";
-            string[] options = { "Start", "Settings", "Exit" };
+            string[] options = { "Search", "Save Search", "Restock", "Exit" };
 
             // Initialize objects
             Menu mainMenu = new Menu(prompt, options);
             Search search = new Search();
             Restock restock = new Restock();
-            List<Product> productList =  GenerateProducts(new List<Product>());
+            List<Product> productList =  GenerateProducts(new List<Product>());            
+            List<Product> searchResults =  GenerateProducts(new List<Product>());
 
-            Console.Write("Enter Search Input: ");
-            string input = Console.ReadLine();
-            List<Product> searchResult = new List<Product>(search.MatchSearch(productList, input));
-            search.PrintSimpleResults(searchResult);
+            //Console.Write("Enter Search Input: ");
+            //string input = Console.ReadLine();
+            //List<Product> searchResult = new List<Product>(search.MatchSearch(productList, input));
+            //search.PrintSimpleResults(searchResult);
+            //search.PrintFullResults(searchResult);
 
 
-            Console.WriteLine("(1)Search\n(2)Save Search\n(3)Restock");
-
-            search.PrintFullResults(searchResult);
-            string output = JsonConvert.SerializeObject(productList, Formatting.Indented);
             // save the search
             int selectedIndex = mainMenu.Run();
+
             do
             {
                 switch (selectedIndex)
                 {
                     case 0:
                         // Run first option
-                        mainMenu.FirstOption();
+                        searchResults = search.MatchSearch(productList);
                         break;
                     case 1:
                         // Run second option
-                        mainMenu.SecondOption();
+                        string output = JsonConvert.SerializeObject(searchResults, Formatting.Indented);
+                        search.SaveSearch(output);
                         break;
                     case 2:
                         // Run third option
                         break;
+                    case 3:
+                        Environment.Exit(0); //Terminates Console
+                        break;
                 }
-
                 selectedIndex = mainMenu.Run();
-            } while (selectedIndex != 2);
+
+            } while (selectedIndex != 3);
         }
         private List<Product> GenerateProducts(List<Product> productList)
         {

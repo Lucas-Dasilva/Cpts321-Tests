@@ -21,9 +21,10 @@ namespace Midterm1App
         /// <param name="args">arguments passed if any</param>
         public static void Main(string[] args)
         {
-            string time = DateTime.Now.ToString("yyyy-MM-dd-HH'h'mm'm'ss's'");
+            
 
-
+            Setup initialize = new Setup();
+            initialize.Start();
             Console.ReadKey(true);
 
 
