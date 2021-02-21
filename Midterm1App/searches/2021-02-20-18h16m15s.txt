@@ -1,8 +1,0 @@
-mag[
-  {
-    "Id": 2,
-    "Quantity": 2,
-    "Name": "PlayBoy Mag",
-    "Description": "Newest playboy magazine with Cardi B"
-  }
-]

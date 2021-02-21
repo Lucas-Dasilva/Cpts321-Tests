@@ -1,8 +1,0 @@
-ps3[
-  {
-    "Id": 10,
-    "Quantity": 3,
-    "Name": "PS3 Controller",
-    "Description": "A controller used to control games on the playstation 3"
-  }
-]

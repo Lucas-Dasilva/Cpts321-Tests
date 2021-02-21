@@ -46,7 +46,7 @@ namespace Midterm1App
                     case 1:
                         // Run second option
                         string output = JsonConvert.SerializeObject(searchResults, Formatting.Indented);
-                        search.SaveSearch(output);
+                        search.SaveSearch(searchResults);
                         break;
                     case 2:
                         // Run third option

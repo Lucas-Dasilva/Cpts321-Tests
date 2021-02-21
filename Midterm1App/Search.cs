@@ -25,6 +25,12 @@ namespace Midterm1App
     {
         public Queue<string> lastSearch = new Queue<string>();
         public Queue<string> lastDate = new Queue<string>();
+
+        /// <summary>
+        /// Look for matches inside a list of products
+        /// </summary>
+        /// <param name="pList"></param>
+        /// <returns></returns>
         public List<Product> MatchSearch(List<Product> pList)
         {
             Console.Clear();
@@ -56,8 +62,10 @@ namespace Midterm1App
             }
             else
             {
-                input = input.ToUpper();
-      
+                input = input.ToUpper(); //Set all characters to upper so, there's no case match
+                
+                // If the search contains multiple words
+                // else, search does not contain multiple words
                 if (input.Contains(" "))
                 {
                     // And (all tokens must be present in each product)
@@ -102,7 +110,7 @@ namespace Midterm1App
                 }
             }
             //print results
-            this.PrintFullResults(searchResults);
+            this.PrintSimpleResults(searchResults);
             return searchResults;
         }
 
@@ -114,10 +122,13 @@ namespace Midterm1App
         /// the search and whether it was an AND or OR search if applicable
         /// The rest of the file, i.e., starting from line 2, must contain the result of the search as it was shown to the employee. 
         /// </summary>
-        public void SaveSearch(string searchResults)
+        public void SaveSearch(List<Product> pList)
         {
+            // If you have not searched before
+            // Else, save search to file
             if (this.lastSearch.Count == 0)
             {
+                Console.Clear();
                 Console.WriteLine("You have no search history, start with a search query first!");
                 Console.WriteLine("Press any key to go back to Menu...");
                 Console.ReadKey(true);
@@ -131,21 +142,15 @@ namespace Midterm1App
                     // Create the file, or overwrite if the file exists.
                     using (FileStream fs = File.Create(path))
                     {
+                        string[] searchResults = this.ParseObject(pList); // The search results as string
                         byte[] info1 = new UTF8Encoding(true).GetBytes(this.lastSearch.First());
                         fs.Write(info1, 0, info1.Length);
 
-                        byte[] info2 = new UTF8Encoding(true).GetBytes(searchResults);
-                        // Add some information to the file.
-                        fs.Write(info2, 0, info2.Length);
-                    }
-
-                    // Open the stream and read it back.
-                    using (StreamReader sr = File.OpenText(path))
-                    {
-                        string s = "";
-                        while ((s = sr.ReadLine()) != null)
+                        for (int i = 0; i < searchResults.Length; i++)
                         {
-                            Console.WriteLine(s);
+                            byte[] info2 = new UTF8Encoding(true).GetBytes(searchResults[i]);
+                            // Add some information to the file.
+                            fs.Write(info2, 0, info2.Length);
                         }
                     }
                 }
@@ -157,6 +162,24 @@ namespace Midterm1App
                 }
             }
         }
+
+        /// <summary>
+        /// printt basic list with name and description
+        /// </summary>
+        /// <param name="pList">the search result coming in</param>
+        private string[] ParseObject(List<Product> pList)
+        {
+            string[] strList = new string[pList.Count];
+            Product p = new Product();
+            for (int i = 0; i < pList.Count; i ++) 
+            {
+                p = pList.ElementAt(i);
+                strList[i] = (String.Format("|Id: {0, 2}| |Name: {1, 15}||Quantity: {2, 4}| |Desc: {3, 20}.\n", 
+                    p.Id, p.Name, p.Quantity, p.Description));
+            }
+            return strList;
+        }
+
         /// <summary>
         /// printt basic list with name and description
         /// </summary>
@@ -167,7 +190,7 @@ namespace Midterm1App
             Console.WriteLine("Simple Search Results: ");
             foreach (Product p in pList)
             {
-                Console.WriteLine("|Name: " + p.Name + "| |Desc: " + p.Description);
+                Console.WriteLine("|Name: {1, 15}||Quantity: {2, 4}|", p.Name, p.Quantity);
             }
         }
 
@@ -185,17 +208,12 @@ namespace Midterm1App
             }
             else
             {
+
                 Console.WriteLine("{0} Results from search!", pList.Count);
                 foreach (Product p in pList)
                 {
-                    if (p.Name.Length < 4)
-                    {
-                        Console.WriteLine("|Id: " + p.Id + "\t| |Name: " + p.Name + "\t\t| |Quantity: " + p.Quantity + "| |Desc: " + p.Description);
-                    }
-                    else
-                    {
-                        Console.WriteLine("|Id: " + p.Id + "\t| |Name: " + p.Name + "\t| |Quantity: " + p.Quantity + "| |Desc: " + p.Description);
-                    }
+                    Console.WriteLine((String.Format("|Id: {0, 2}| |Name: {1, 15}||Quantity: {2, 4}| |Desc: {3, 20}.",
+                                        p.Id, p.Name, p.Quantity, p.Description)));
                 }
                 Console.WriteLine("Press any key to go back to Menu...");
                 Console.ReadKey(true);

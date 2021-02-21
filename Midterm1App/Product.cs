@@ -22,6 +22,13 @@ namespace Midterm1App
             this.Name = name;
             this.Description = description;
         }
+        public Product()
+        {
+            this.Id = 0;
+            this.Quantity = 0;
+            this.Name = "";
+            this.Description = "";
+        }
 
 
     }
