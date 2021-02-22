@@ -1,13 +1,13 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="TestSaveSearch.cs" company="CompanyName">
+// <copyright file="TestProduct.cs" company="CompanyName">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
 namespace Midterm1App
 {
-    using NUnit.Framework;
     using System.Collections.Generic;
-
+    using NUnit.Framework;
+    
     /// <summary>
     /// Testing save search class
     /// </summary>
@@ -26,6 +26,5 @@ namespace Midterm1App
 
             Assert.IsTrue(productList.Count == 3);
         }
-
     }
 }

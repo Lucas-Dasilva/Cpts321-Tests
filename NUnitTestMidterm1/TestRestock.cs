@@ -5,8 +5,8 @@
 //-----------------------------------------------------------------------
 namespace Midterm1App
 {
-    using NUnit.Framework;
     using System.Collections.Generic;
+    using NUnit.Framework;
 
     /// <summary>
     /// Testing restock class
@@ -45,13 +45,13 @@ namespace Midterm1App
             };
             Assert.AreEqual(restock.CheckStock(searchResult, 5), expectedValue); 
         }
+
         /// <summary>
         /// Test restock function
         /// </summary>
         [Test]
         public void TestRestockProducts()
         {
-
             List<Product> productList = new List<Product>();
             productList.Add(new Product(1, "Playstation 5", 0, "The brand new console PS5, where you can play games"));
             productList.Add(new Product(2, "PlayBoy Magazine", 2, "Newest playboy magazine with Cardi B"));
@@ -66,6 +66,5 @@ namespace Midterm1App
             };
             Assert.AreEqual(productList, expectedValue);
         }
-
     }
 }

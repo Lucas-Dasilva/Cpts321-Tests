@@ -1,0 +1,2 @@
+Your Last Search Input: 'mag'
+|Id:  2| |Name:     PlayBoy Mag||Quantity:  125| |Desc: Newest playboy magazine with Cardi B.

@@ -1,0 +1,4 @@
+Your Last Search Input: 'ps'
+|Id:  1| |Name:   Playstation 5||Quantity:    0| |Desc: The brand new console PS5, where you can play games.
+|Id:  5| |Name:    $50 PSN Card||Quantity:   -1| |Desc: Giftcard for for PSN store.
+|Id: 10| |Name:  PS3 Controller||Quantity:    3| |Desc: A controller used to control games on the playstation 3.

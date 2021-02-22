@@ -1,16 +1,22 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Menu.cs" company="CompanyName">
+// <copyright file="Setup.cs" company="CompanyName">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
 
 namespace Midterm1App
 {
-    using System.Collections.Generic;
     using System;
+    using System.Collections.Generic;
 
-    class Setup
+    /// <summary>
+    /// Sets up the menu and the project
+    /// </summary>
+    public class Setup
     {
+        /// <summary>
+        /// Starts the menu
+        /// </summary>
         public void Start()
         {
             // Menu options
@@ -21,12 +27,11 @@ namespace Midterm1App
             Menu mainMenu = new Menu(prompt, options);
             Search search = new Search();
             Restock restock = new Restock();
-            List<Product> productList =  GenerateProducts(new List<Product>());            
-            List<Product> searchResults =  GenerateProducts(new List<Product>());
+            List<Product> productList = this.GenerateProducts(new List<Product>());            
+            List<Product> searchResults = this.GenerateProducts(new List<Product>());
 
             // save the search
             int selectedIndex = mainMenu.Run();
-
             do
             {
                 switch (selectedIndex)
@@ -44,13 +49,20 @@ namespace Midterm1App
                         restock.InquireUser(productList);
                         break;
                     case 3:
-                        Environment.Exit(0); //Terminates Console
+                        Environment.Exit(0); // Terminates Console
                         break;
                 }
-                selectedIndex = mainMenu.Run();
 
-            } while (selectedIndex != 3);
+                selectedIndex = mainMenu.Run();
+            } 
+            while (selectedIndex != 3);
         }
+
+        /// <summary>
+        /// Generates basic list of products used for testing
+        /// </summary>
+        /// <param name="productList">Initialized Product object</param>
+        /// <returns>The list of products generated</returns>
         private List<Product> GenerateProducts(List<Product> productList)
         {
             productList.Add(new Product(1, "Playstation 5", 0, "The brand new console PS5, where you can play games"));
@@ -66,7 +78,5 @@ namespace Midterm1App
 
             return productList;
         }
-
-
     }
 }

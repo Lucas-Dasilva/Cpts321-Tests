@@ -5,8 +5,8 @@
 //-----------------------------------------------------------------------
 namespace Midterm1App
 {
-    using Newtonsoft.Json;
     using System;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -21,11 +21,8 @@ namespace Midterm1App
         /// <param name="args">arguments passed if any</param>
         public static void Main(string[] args)
         {
-            
-
             Setup initialize = new Setup();
             initialize.Start();
         }
-
     }
 }

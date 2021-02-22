@@ -6,8 +6,8 @@
 namespace Midterm1App
 {
     using System;
-    using NUnit.Framework;
     using System.Collections.Generic;
+    using NUnit.Framework;
 
     /// <summary>
     /// Testing search class
@@ -39,15 +39,16 @@ namespace Midterm1App
 
             Assert.AreEqual(searchResult, productList);
         }
+
         /// <summary>
-        /// Test save search if it returns tru as in the file was created succesffuly
+        /// Test save search if it returns true as in the file was created successfuly
         /// </summary>
         [Test]
         public void TestSaveSearch()
         {
             Search search = new Search();
             string filename = "2021-02-04-20h34m30s";
+            Assert.AreEqual(search, filename);
         }
-
     }
 }

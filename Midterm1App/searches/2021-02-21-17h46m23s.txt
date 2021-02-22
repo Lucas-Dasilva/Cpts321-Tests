@@ -1,0 +1,11 @@
+Your Last Search Input: 'mag'
+|Id:  1| |Name:   Playstation 5||Quantity: 1222| |Desc: The brand new console PS5, where you can play games.
+|Id:  2| |Name:     PlayBoy Mag||Quantity:  125| |Desc: Newest playboy magazine with Cardi B.
+|Id:  3| |Name:         Control||Quantity:   10| |Desc: Play the Control on new generation of consoles.
+|Id:  4| |Name:     Door Mirror||Quantity:  125| |Desc: A mirror designed to be hangned on your wall.
+|Id:  5| |Name:    $50 PSN Card||Quantity:   -1| |Desc: Giftcard for for PSN store.
+|Id:  6| |Name:      Skii Boots||Quantity:  128| |Desc: Control your lines with extreme precision with these highgrade boots used for skiing, for adults.
+|Id:  7| |Name:      Windows 10||Quantity:   -1| |Desc: The #1 OS that everyone uses, and is also way better than Linux.
+|Id:  8| |Name:             Pen||Quantity: 1232| |Desc: The best pens in the world, jk they're cheap, that's why we have so many of them.
+|Id:  9| |Name:       Iphone 10||Quantity:    7| |Desc: The best phone you can get right now, play games and movies in stunning 360P quality.
+|Id: 10| |Name:  PS3 Controller||Quantity:   26| |Desc: A controller used to control games on the playstation 3.

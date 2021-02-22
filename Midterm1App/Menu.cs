@@ -81,7 +81,8 @@ namespace Midterm1App
                         this.selectedIndex = 0;
                     }
                 }
-            } while (keyPressed != ConsoleKey.Enter);
+            } 
+            while (keyPressed != ConsoleKey.Enter);
 
             return this.selectedIndex;
         }

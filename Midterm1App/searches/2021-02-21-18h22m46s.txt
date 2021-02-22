@@ -1,0 +1,6 @@
+Your Last Search Input: 'play mag' using 'OR'
+|Id:  1| |Name:   Playstation 5||Quantity:    3| |Desc: The brand new console PS5, where you can play games.
+|Id:  2| |Name:     PlayBoy Mag||Quantity:    5| |Desc: Newest playboy magazine with Cardi B.
+|Id:  3| |Name:         Control||Quantity:   10| |Desc: Play the Control on new generation of consoles.
+|Id:  9| |Name:       Iphone 10||Quantity:    7| |Desc: The best phone you can get right now, play games and movies in stunning 360P quality.
+|Id: 10| |Name:  PS3 Controller||Quantity:    6| |Desc: A controller used to control games on the playstation 3.
