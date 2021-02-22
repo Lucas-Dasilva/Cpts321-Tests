@@ -37,7 +37,7 @@ namespace Midterm1App
             Console.Write("Enter a search query: ");
             string input = Console.ReadLine();
             // save search into queue
-            this.lastSearch.Enqueue(input);
+            
             this.lastDate.Enqueue(DateTime.Now.ToString("yyyy-MM-dd-HH'h'mm'm'ss's'"));
 
             List<Product> searchResults = new List<Product>();
@@ -62,6 +62,7 @@ namespace Midterm1App
             }
             else
             {
+                string originalInput = input;
                 input = input.ToUpper(); //Set all characters to upper so, there's no case match
                 
                 // If the search contains multiple words
@@ -76,6 +77,8 @@ namespace Midterm1App
                     // else Do an 'And' search
                     if (!this.CheckAndOr())
                     {
+                        // Add message for when we write to file
+                        this.lastSearch.Enqueue("Your Last Search Input: '" + originalInput + "' using 'OR'" + "\n");
                         foreach (Product p in pList)
                         {
                             // if any string in token list is inside either Name or description
@@ -87,6 +90,8 @@ namespace Midterm1App
                     }
                     else
                     {
+                        // Add message for when we write to file
+                        this.lastSearch.Enqueue("Your Last Search Input: '" + originalInput + "' using 'AND'" + "\n");
                         foreach (Product p in pList)
                         {
                             // if the string input is inside either Name or description
@@ -99,6 +104,8 @@ namespace Midterm1App
                 }
                 else
                 {
+                    // Add message for when we write to file
+                    this.lastSearch.Enqueue("Your Last Search Input: '" + originalInput + "'\n");
                     foreach (Product p in pList)
                     {
                         // if the string input is inside either Name or description
@@ -110,7 +117,7 @@ namespace Midterm1App
                 }
             }
             //print results
-            this.PrintSimpleResults(searchResults);
+            this.PrintFullResults(searchResults);
             return searchResults;
         }
 
@@ -135,7 +142,7 @@ namespace Midterm1App
             }
             else
             { 
-                string path = @"..\..\..\..\Midterm1App\searches\" + this.lastDate.First() + ".txt";
+                string path = @"..\..\..\..\Midterm1App\searches\" + this.lastDate.Last() + ".txt";
 
                 try
                 {
@@ -143,7 +150,7 @@ namespace Midterm1App
                     using (FileStream fs = File.Create(path))
                     {
                         string[] searchResults = this.ParseObject(pList); // The search results as string
-                        byte[] info1 = new UTF8Encoding(true).GetBytes(this.lastSearch.First());
+                        byte[] info1 = new UTF8Encoding(true).GetBytes(this.lastSearch.Last());
                         fs.Write(info1, 0, info1.Length);
 
                         for (int i = 0; i < searchResults.Length; i++)
@@ -180,19 +187,7 @@ namespace Midterm1App
             return strList;
         }
 
-        /// <summary>
-        /// printt basic list with name and description
-        /// </summary>
-        /// <param name="pList">the search result coming in</param>
-        private void PrintSimpleResults(List<Product> pList)
-        {
-            Console.Clear();
-            Console.WriteLine("Simple Search Results: ");
-            foreach (Product p in pList)
-            {
-                Console.WriteLine("|Name: {1, 15}||Quantity: {2, 4}|", p.Name, p.Quantity);
-            }
-        }
+
 
         /// <summary>
         /// Print full list details
@@ -242,6 +237,7 @@ namespace Midterm1App
                 return false;
             }
         }
+
         /// <summary>
         /// Checks if input is only digits
         /// </summary>

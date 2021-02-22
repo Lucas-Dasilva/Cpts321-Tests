@@ -8,7 +8,6 @@ namespace Midterm1App
 {
     using System.Collections.Generic;
     using System;
-    using Newtonsoft.Json;
 
     class Setup
     {
@@ -25,13 +24,6 @@ namespace Midterm1App
             List<Product> productList =  GenerateProducts(new List<Product>());            
             List<Product> searchResults =  GenerateProducts(new List<Product>());
 
-            //Console.Write("Enter Search Input: ");
-            //string input = Console.ReadLine();
-            //List<Product> searchResult = new List<Product>(search.MatchSearch(productList, input));
-            //search.PrintSimpleResults(searchResult);
-            //search.PrintFullResults(searchResult);
-
-
             // save the search
             int selectedIndex = mainMenu.Run();
 
@@ -45,11 +37,11 @@ namespace Midterm1App
                         break;
                     case 1:
                         // Run second option
-                        string output = JsonConvert.SerializeObject(searchResults, Formatting.Indented);
                         search.SaveSearch(searchResults);
                         break;
                     case 2:
                         // Run third option
+                        restock.InquireUser(productList);
                         break;
                     case 3:
                         Environment.Exit(0); //Terminates Console
@@ -73,7 +65,6 @@ namespace Midterm1App
             productList.Add(new Product(10, "PS3 Controller", 3, "A controller used to control games on the playstation 3"));
 
             return productList;
-
         }
 
 

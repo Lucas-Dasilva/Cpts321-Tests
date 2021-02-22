@@ -25,10 +25,6 @@ namespace Midterm1App
 
             Setup initialize = new Setup();
             initialize.Start();
-            Console.ReadKey(true);
-
-
-
         }
 
     }
