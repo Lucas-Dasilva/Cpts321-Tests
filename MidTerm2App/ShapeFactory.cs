@@ -22,18 +22,18 @@ namespace MidTerm2App
         /// <param name="c">Shape character</param>
         /// <param name="index">Index value that determines the size of shape</param>
         /// <returns>Returns the shape Object</returns>
-        public Shape CreateShape(char c, int index)
+        public Shape CreateShape(string c, int index)
         {
             // picking case for shape to pick
             switch (c)
             {
-                case 'c':
+                case "c":
                     // Default radius * the index value
                     return new Circle(5.0 * index) { };
-                case 's':
+                case "s":
                     // Default side length * the index value
                     return new Square(5.0 * index) { };
-                case 'r':
+                case "r":
                     // Default length and width * the index value
                     return new Rectangle(3.0 * index, 4.0 * index) { };
                 default:

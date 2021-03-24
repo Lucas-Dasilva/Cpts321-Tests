@@ -1,10 +1,14 @@
 <stylecopresultscache>
   <version>12</version>
+  <project key="-1595269920">
+    <configuration>
+    </configuration>
+  </project>
   <sourcecode name="Circle.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2021/02/03 14:31:28.993</styleCop>
       <settingsFile>2021/02/03 14:31:28.965</settingsFile>
-      <sourceFile>2021/03/22 20:14:39.782</sourceFile>
+      <sourceFile>2021/03/23 15:47:13.845</sourceFile>
       <parser>2021/02/03 14:31:28.993</parser>
       <StyleCop.CSharp.DocumentationRules>2021/02/03 14:31:28.993</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-353571034</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -96,7 +100,53 @@
     <timestamps>
       <styleCop>2021/02/03 14:31:28.993</styleCop>
       <settingsFile>2021/02/03 14:31:28.965</settingsFile>
-      <sourceFile>2021/03/22 20:14:23.434</sourceFile>
+      <sourceFile>2021/03/23 15:59:40.452</sourceFile>
+      <parser>2021/02/03 14:31:28.993</parser>
+      <StyleCop.CSharp.DocumentationRules>2021/02/03 14:31:28.993</StyleCop.CSharp.DocumentationRules>
+      <StyleCop.CSharp.DocumentationRules.FilesHashCode>-353571034</StyleCop.CSharp.DocumentationRules.FilesHashCode>
+      <StyleCop.CSharp.LayoutRules>2021/02/03 14:31:28.993</StyleCop.CSharp.LayoutRules>
+      <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
+      <StyleCop.CSharp.MaintainabilityRules>2021/02/03 14:31:28.993</StyleCop.CSharp.MaintainabilityRules>
+      <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
+      <StyleCop.CSharp.NamingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.NamingRules>
+      <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
+      <StyleCop.CSharp.OrderingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.OrderingRules>
+      <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
+      <StyleCop.CSharp.ReadabilityRules>2021/02/03 14:31:28.993</StyleCop.CSharp.ReadabilityRules>
+      <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
+      <StyleCop.CSharp.SpacingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.SpacingRules>
+      <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ShapeFactory.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/02/03 14:31:28.993</styleCop>
+      <settingsFile>2021/02/03 14:31:28.965</settingsFile>
+      <sourceFile>2021/03/23 15:46:24.969</sourceFile>
+      <parser>2021/02/03 14:31:28.993</parser>
+      <StyleCop.CSharp.DocumentationRules>2021/02/03 14:31:28.993</StyleCop.CSharp.DocumentationRules>
+      <StyleCop.CSharp.DocumentationRules.FilesHashCode>-353571034</StyleCop.CSharp.DocumentationRules.FilesHashCode>
+      <StyleCop.CSharp.LayoutRules>2021/02/03 14:31:28.993</StyleCop.CSharp.LayoutRules>
+      <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
+      <StyleCop.CSharp.MaintainabilityRules>2021/02/03 14:31:28.993</StyleCop.CSharp.MaintainabilityRules>
+      <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
+      <StyleCop.CSharp.NamingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.NamingRules>
+      <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
+      <StyleCop.CSharp.OrderingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.OrderingRules>
+      <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
+      <StyleCop.CSharp.ReadabilityRules>2021/02/03 14:31:28.993</StyleCop.CSharp.ReadabilityRules>
+      <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
+      <StyleCop.CSharp.SpacingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.SpacingRules>
+      <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ShapeStructure.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/02/03 14:31:28.993</styleCop>
+      <settingsFile>2021/02/03 14:31:28.965</settingsFile>
+      <sourceFile>2021/03/23 18:04:11.537</sourceFile>
       <parser>2021/02/03 14:31:28.993</parser>
       <StyleCop.CSharp.DocumentationRules>2021/02/03 14:31:28.993</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-353571034</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -120,33 +170,6 @@
       <styleCop>2021/02/03 14:31:28.993</styleCop>
       <settingsFile>2021/02/03 14:31:28.965</settingsFile>
       <sourceFile>2021/03/22 20:13:40.525</sourceFile>
-      <parser>2021/02/03 14:31:28.993</parser>
-      <StyleCop.CSharp.DocumentationRules>2021/02/03 14:31:28.993</StyleCop.CSharp.DocumentationRules>
-      <StyleCop.CSharp.DocumentationRules.FilesHashCode>-353571034</StyleCop.CSharp.DocumentationRules.FilesHashCode>
-      <StyleCop.CSharp.LayoutRules>2021/02/03 14:31:28.993</StyleCop.CSharp.LayoutRules>
-      <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
-      <StyleCop.CSharp.MaintainabilityRules>2021/02/03 14:31:28.993</StyleCop.CSharp.MaintainabilityRules>
-      <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
-      <StyleCop.CSharp.NamingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.NamingRules>
-      <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
-      <StyleCop.CSharp.OrderingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.OrderingRules>
-      <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
-      <StyleCop.CSharp.ReadabilityRules>2021/02/03 14:31:28.993</StyleCop.CSharp.ReadabilityRules>
-      <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
-      <StyleCop.CSharp.SpacingRules>2021/02/03 14:31:28.993</StyleCop.CSharp.SpacingRules>
-      <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
-    </timestamps>
-    <violations />
-  </sourcecode>
-  <project key="-1595269920">
-    <configuration>
-    </configuration>
-  </project>
-  <sourcecode name="ShapeFactory.cs" parser="StyleCop.CSharp.CsParser">
-    <timestamps>
-      <styleCop>2021/02/03 14:31:28.993</styleCop>
-      <settingsFile>2021/02/03 14:31:28.965</settingsFile>
-      <sourceFile>2021/03/22 20:25:36.246</sourceFile>
       <parser>2021/02/03 14:31:28.993</parser>
       <StyleCop.CSharp.DocumentationRules>2021/02/03 14:31:28.993</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-353571034</StyleCop.CSharp.DocumentationRules.FilesHashCode>

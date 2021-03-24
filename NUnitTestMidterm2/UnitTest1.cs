@@ -17,7 +17,6 @@ namespace MidTerm2App
     {
         [Test]
         [TestCase("cscr")]
-        [TestCase("c s c r")]
 
         /// <summary>
         /// Tests whether or not the default size changes based on the index of the array
@@ -26,16 +25,17 @@ namespace MidTerm2App
         public void TestDefaultSizeChange(string expression)
         {
             double[] target = new double[4];
-            double[] expected = new double[] { 78.54, 100, 706.86, 192};
+            double[] expected = new double[] { 78.54, 100, 706.86, 192 };
 
             ShapeFactory factory = new ShapeFactory();
             int i = 0;
             foreach (char c in expression)
             {
                 i++;
-                Shape shape = factory.CreateShape(c, i);
+                Shape shape = factory.CreateShape(c.ToString(), i);
                 target[i - 1] = shape.Area();
             }
+
             Assert.AreEqual(target, expected);
         }
     }

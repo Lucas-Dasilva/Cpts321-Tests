@@ -49,6 +49,7 @@
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ShapeFactory.cs" />
+    <Compile Include="ShapeStructure.cs" />
     <Compile Include="Square.cs" />
   </ItemGroup>
   <ItemGroup>

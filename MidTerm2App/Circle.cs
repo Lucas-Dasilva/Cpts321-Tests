@@ -42,7 +42,7 @@ namespace MidTerm2App
         /// <returns>The area of the circle</returns>
         public override double Area()
         {
-            return Math.Round(Math.PI * Math.Pow(this.Radius, 2.0),2);
+            return Math.Round(Math.PI * Math.Pow(this.Radius, 2.0), 2);
         }
 
         /// <summary>
