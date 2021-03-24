@@ -17,13 +17,23 @@ namespace MidTerm2App
     public class Square : Shape
     {
         /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double defaultLength = 5.0;
+
+        /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double length;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Square" /> class.
         /// </summary>
-        /// <param name="side">Set the side of the Square</param>
-        public Square(double side)
+        /// <param name="index">The index of the sequence</param>
+        public Square(int index)
         {
             this.Name = "Square";
-            this.Side = side;
+            this.length = this.defaultLength * index;
         }
 
         /// <summary>
@@ -32,9 +42,13 @@ namespace MidTerm2App
         private new string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the side of the Square
+        /// Sets the length of the square
         /// </summary>
-        private double Side { get; set; }
+        /// <param name="newLength">New length from user</param>
+        public void SetDefaultLength(double newLength)
+        {
+            this.defaultLength = newLength;
+        }
 
         /// <summary>
         /// Calculate the area of the Square
@@ -42,7 +56,7 @@ namespace MidTerm2App
         /// <returns>The area of the Square</returns>
         public override double Area()
         {
-            return this.Side * this.Side;
+            return this.length * this.length;
         }
 
         /// <summary>
@@ -50,7 +64,7 @@ namespace MidTerm2App
         /// </summary>
         public override void Info()
         {
-            Console.WriteLine("Name: {0}\nDimensions: {1} X {2}\nArea: {3}\n", this.Name, this.Side, this.Side, this.Side * this.Side);
+            Console.WriteLine("Name: {0}\nDimensions: {1} X {2}\nArea: {3}\n", this.Name, this.length, this.length, this.length * this.length);
         }
     }
 }

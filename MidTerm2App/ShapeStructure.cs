@@ -19,7 +19,7 @@ namespace MidTerm2App
         /// <summary>
         /// Describes the sequence input by user, into string array
         /// </summary>
-        private string[] sequence;
+        private string[] tokenSequence;
 
         /// <summary>
         /// A dictionary, where the key holds the sequence and the value is the list of
@@ -48,15 +48,39 @@ namespace MidTerm2App
             ShapeFactory factory = new ShapeFactory();
 
             // Loop through the string array, and call shape factory to create the shapes
-            for (int i = 0; i < this.sequence.Length; i++)
+            for (int i = 0; i < this.tokenSequence.Length; i++)
             {
                 // Add the shape to the list of shapes
-                this.shapeList.Add(factory.CreateShape(this.sequence[i], i + 1));
+                this.shapeList.Add(factory.CreateShape(this.tokenSequence[i], i + 1));
             }
+
+            // Set the original sequence
+            this.Sequence = seq;
+
+            // Set the sum of the areas
+            this.SumOfArea = this.CumulativeArea();
+            
+            // Set the sum of the areas
+            this.ShapeList = this.shapeList;
 
             // Add the sequence and the list of shapes to the dictionary
             this.shapeDict.Add(seq, this.shapeList);
         }
+
+        /// <summary>
+        /// Gets or sets the list of shapes
+        /// </summary>
+        public List<Shape> ShapeList { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sum of areas
+        /// </summary>
+        public string Sequence { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sum of areas
+        /// </summary>
+        public double SumOfArea { get; set; }
 
         /// <summary>
         /// Calculates each cumulative area for each sequence input by the user
@@ -65,12 +89,14 @@ namespace MidTerm2App
         public double CumulativeArea()
         {
             double sumArea = 0.0;
+
+            // Calculate the cumulative area of the shape list
             foreach (Shape s in this.shapeList)
             {
                 sumArea += s.Area();
             }
 
-            return sumArea;
+            return Math.Round(sumArea, 2);
         }
 
         /// <summary>
@@ -79,23 +105,23 @@ namespace MidTerm2App
         /// <param name="seq">the sequence input by the user</param>
         private void TokenizeSequence(string seq)
         {
-            
+            // Check if string is in right format
+            // else tokenize without spaces
             if (seq.Contains(" "))
             {
                 string[] exp = seq.Split(' ');
-                this.sequence = exp;
+                this.tokenSequence = exp;
             }
             else
             {
                 string exp;
-                this.sequence = new string[seq.Length];
-                for (int i = 0; i < seq.Length; i ++)
+                this.tokenSequence = new string[seq.Length];
+                for (int i = 0; i < seq.Length; i++)
                 {
                     exp = seq[i].ToString();
-                    this.sequence[i] = exp;
+                    this.tokenSequence[i] = exp;
                 }
             }
-
         }
     }
 }

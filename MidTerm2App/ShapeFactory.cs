@@ -29,13 +29,13 @@ namespace MidTerm2App
             {
                 case "c":
                     // Default radius * the index value
-                    return new Circle(5.0 * index) { };
+                    return new Circle(index) { };
                 case "s":
                     // Default side length * the index value
-                    return new Square(5.0 * index) { };
+                    return new Square(index) { };
                 case "r":
                     // Default length and width * the index value
-                    return new Rectangle(3.0 * index, 4.0 * index) { };
+                    return new Rectangle(index) { };
                 default:
                     // if it is not any of the operators that we support, throw an exception:
                     throw new NotSupportedException("Shape " + c + " not supported yet!");

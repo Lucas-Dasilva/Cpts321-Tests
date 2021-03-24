@@ -22,7 +22,7 @@ namespace MidTerm2App
         /// <param name="args">command parameters</param>
         public static void Main(string[] args)
         {
-            Shape[] shape = { new Circle(5.0), new Rectangle(2, 3), new Square(5) };
+            Shape[] shape = { new Circle(0), new Rectangle(1), new Square(2) };
             
             foreach (Shape s in shape)
             {

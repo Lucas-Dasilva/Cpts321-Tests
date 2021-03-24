@@ -51,6 +51,7 @@
     <Compile Include="ShapeFactory.cs" />
     <Compile Include="ShapeStructure.cs" />
     <Compile Include="Square.cs" />
+    <Compile Include="UserQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

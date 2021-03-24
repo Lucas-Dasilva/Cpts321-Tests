@@ -17,13 +17,23 @@ namespace MidTerm2App
     public class Circle : Shape
     {
         /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double defaultRadius = 5.0;
+
+        /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double radius;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Circle" /> class.
         /// </summary>
-        /// <param name="radius">Set the radius of the circle</param>
-        public Circle(double radius)
+        /// <param name="index">Index of sequence</param>
+        public Circle(int index)
         {
             this.Name = "Circle";
-            this.Radius = radius;
+            this.radius = index * this.defaultRadius;
         }
 
         /// <summary>
@@ -34,7 +44,11 @@ namespace MidTerm2App
         /// <summary>
         /// Gets or sets the area of the circle
         /// </summary>
-        private double Radius { get; set; }
+        /// <param name="newRadius">New radius from user</param>
+        public void SetDefaultRadius(double newRadius)
+        {
+            this.defaultRadius = newRadius;
+        }
 
         /// <summary>
         /// Calculate the area of the circle
@@ -42,7 +56,7 @@ namespace MidTerm2App
         /// <returns>The area of the circle</returns>
         public override double Area()
         {
-            return Math.Round(Math.PI * Math.Pow(this.Radius, 2.0), 2);
+            return Math.Round(Math.PI * Math.Pow(this.radius, 2.0), 2);
         }
 
         /// <summary>
@@ -50,7 +64,7 @@ namespace MidTerm2App
         /// </summary>
         public override void Info()
         {
-            Console.WriteLine("Name: {0}\nRadius: {1}\nArea: {2:f2}\n", this.Name, this.Radius, Math.PI * Math.Pow(this.Radius, 2.0));
+            Console.WriteLine("Name: {0}\nRadius: {1}\nArea: {2:f2}\n", this.Name, this.radius, Math.PI * Math.Pow(this.radius, 2.0));
         }
     }
 }

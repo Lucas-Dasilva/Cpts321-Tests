@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------
-// <copyright file="UnitTest1.cs" company="Lucas Da Silva 11631988">
+// <copyright file="TestSizeChange.cs" company="Lucas Da Silva 11631988">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -13,7 +13,7 @@ namespace MidTerm2App
     /// Tests for Expression Tree
     /// </summary>
     [TestFixture]
-    public class UnitTest1
+    public class TestSizeChange
     {
         [Test]
         [TestCase("cscr")]
@@ -36,7 +36,7 @@ namespace MidTerm2App
                 target[i - 1] = shape.Area();
             }
 
-            Assert.AreEqual(target, expected);
+            Assert.AreEqual(expected, target);
         }
     }
 }

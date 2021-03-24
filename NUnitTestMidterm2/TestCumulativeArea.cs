@@ -32,7 +32,7 @@ namespace MidTerm2App
 
             target = shapeStruct.CumulativeArea();
 
-            Assert.AreEqual(target, expected);
+            Assert.AreEqual(expected, target);
         }
     }
 }

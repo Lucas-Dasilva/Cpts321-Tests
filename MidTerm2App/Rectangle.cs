@@ -17,15 +17,34 @@ namespace MidTerm2App
     public class Rectangle : Shape
     {
         /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double defaultLength = 3.0;        
+        
+        /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double defaultWidth = 4.0;
+
+        /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double length;
+
+        /// <summary>
+        /// The default radius of circle
+        /// </summary>
+        private double width;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle" /> class.
         /// </summary>
-        /// <param name="l">Set the length of the rectangle</param>
-        /// <param name="w">Set the width of the rectangle</param>
-        public Rectangle(double l, double w)
+        /// <param name="index">The index of rectangle in the sequence</param>
+        public Rectangle(int index)
         {
             this.Name = "Rectangle";
-            this.Length = l;
-            this.Width = w;
+            this.length = this.defaultLength * index;
+            this.width = this.defaultWidth * index;
         }
 
         /// <summary>
@@ -34,14 +53,22 @@ namespace MidTerm2App
         private new string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the length of the rectangle
+        /// Sets the length of the Rectangle
         /// </summary>
-        private double Length { get; set; }
+        /// <param name="newLength">New length from user</param>
+        public void SetDefaultLength(double newLength)
+        {
+            this.defaultLength = newLength;
+        }
 
         /// <summary>
-        /// Gets or sets the width of the rectangle
+        /// Sets the width of the rectangle
         /// </summary>
-        private double Width { get; set; }
+        /// <param name="newWidth">New width from user</param>
+        public void SetDefaultWidth(double newWidth)
+        {
+            this.defaultWidth = newWidth;
+        }
 
         /// <summary>
         /// Calculate the area of the Rectangle
@@ -49,7 +76,7 @@ namespace MidTerm2App
         /// <returns>The area of the Rectangle</returns>
         public override double Area()
         {
-            return this.Length * this.Width;
+            return this.length * this.width;
         }
 
         /// <summary>
@@ -57,7 +84,7 @@ namespace MidTerm2App
         /// </summary>
         public override void Info()
         {
-            Console.WriteLine("Name: {0}\nDimensions: {1} X {2}\nArea: {3}\n", this.Name, this.Width, this.Length, this.Length * this.Width);
+            Console.WriteLine("Name: {0}\nDimensions: {1} X {2}\nArea: {3}\n", this.Name, this.width, this.length, this.length * this.width);
         }
     }
 }
