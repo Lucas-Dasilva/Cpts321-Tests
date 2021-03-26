@@ -19,36 +19,23 @@ namespace MidTerm2App
         /// <summary>
         /// The default radius of circle
         /// </summary>
-        private double defaultRadius = 5.0;
-
-        /// <summary>
-        /// The default radius of circle
-        /// </summary>
         private double radius;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Circle" /> class.
         /// </summary>
         /// <param name="index">Index of sequence</param>
-        public Circle(int index)
+        public Circle(double radius)
         {
             this.Name = "Circle";
-            this.radius = index * this.defaultRadius;
-        }
-
+            this.radius = radius;
+        }      
+        
         /// <summary>
         /// Gets or sets the Name of the circle
         /// </summary>
         private new string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the area of the circle
-        /// </summary>
-        /// <param name="newRadius">New radius from user</param>
-        public void SetDefaultRadius(double newRadius)
-        {
-            this.defaultRadius = newRadius;
-        }
 
         /// <summary>
         /// Calculate the area of the circle

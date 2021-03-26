@@ -22,12 +22,6 @@ namespace MidTerm2App
         private string[] tokenSequence;
 
         /// <summary>
-        /// A dictionary, where the key holds the sequence and the value is the list of
-        /// shapes created from the sequence.
-        /// </summary>
-        private Dictionary<string, List<Shape>> shapeDict = new Dictionary<string, List<Shape>>();
-
-        /// <summary>
         /// This will keep track of all the sequences and 
         /// </summary>
         private List<Shape> shapeList;
@@ -36,7 +30,8 @@ namespace MidTerm2App
         /// Initializes a new instance of the <see cref="ShapeStructure" /> class.
         /// </summary>
         /// <param name="seq">The sequence given by the user</param>
-        public ShapeStructure(string seq)
+        /// <param name="factory">The shape factory reference needed, to get default values</param>
+        public ShapeStructure(string seq, ShapeFactory factory)
         {
             // Create a shape list to store all the shapes created from the sequence input
             this.shapeList = new List<Shape>();
@@ -44,9 +39,6 @@ namespace MidTerm2App
             // We want to tokenize string, so we can refer to this.Sequence
             this.TokenizeSequence(seq);
             
-            // Create shape factory to handle the expression depending on character
-            ShapeFactory factory = new ShapeFactory();
-
             // Loop through the string array, and call shape factory to create the shapes
             for (int i = 0; i < this.tokenSequence.Length; i++)
             {
@@ -62,9 +54,6 @@ namespace MidTerm2App
             
             // Set the sum of the areas
             this.ShapeList = this.shapeList;
-
-            // Add the sequence and the list of shapes to the dictionary
-            this.shapeDict.Add(seq, this.shapeList);
         }
 
         /// <summary>

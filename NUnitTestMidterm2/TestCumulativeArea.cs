@@ -28,9 +28,9 @@ namespace MidTerm2App
             double target = 0.0;
             double expected = 1077.4;
 
-            ShapeStructure shapeStruct = new ShapeStructure(expression);
+            // ShapeStructure shapeStruct = new ShapeStructure(expression);
 
-            target = shapeStruct.CumulativeArea();
+            // target = shapeStruct.CumulativeArea();
 
             Assert.AreEqual(expected, target);
         }

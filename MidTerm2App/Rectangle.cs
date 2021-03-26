@@ -19,16 +19,6 @@ namespace MidTerm2App
         /// <summary>
         /// The default radius of circle
         /// </summary>
-        private double defaultLength = 3.0;        
-        
-        /// <summary>
-        /// The default radius of circle
-        /// </summary>
-        private double defaultWidth = 4.0;
-
-        /// <summary>
-        /// The default radius of circle
-        /// </summary>
         private double length;
 
         /// <summary>
@@ -39,36 +29,19 @@ namespace MidTerm2App
         /// <summary>
         /// Initializes a new instance of the <see cref="Rectangle" /> class.
         /// </summary>
-        /// <param name="index">The index of rectangle in the sequence</param>
-        public Rectangle(int index)
+        /// <param name="length">the length of this rectangle</param>
+        /// <param name="width">The width of this rectange</param>
+        public Rectangle(double length, double width)
         {
             this.Name = "Rectangle";
-            this.length = this.defaultLength * index;
-            this.width = this.defaultWidth * index;
+            this.length = length;
+            this.width = width;
         }
 
         /// <summary>
         /// Gets or sets the Name of the Rectangle
         /// </summary>
         private new string Name { get; set; }
-
-        /// <summary>
-        /// Sets the length of the Rectangle
-        /// </summary>
-        /// <param name="newLength">New length from user</param>
-        public void SetDefaultLength(double newLength)
-        {
-            this.defaultLength = newLength;
-        }
-
-        /// <summary>
-        /// Sets the width of the rectangle
-        /// </summary>
-        /// <param name="newWidth">New width from user</param>
-        public void SetDefaultWidth(double newWidth)
-        {
-            this.defaultWidth = newWidth;
-        }
 
         /// <summary>
         /// Calculate the area of the Rectangle

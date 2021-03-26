@@ -16,10 +16,7 @@ namespace MidTerm2App
     /// </summary>
     public class Square : Shape
     {
-        /// <summary>
-        /// The default radius of circle
-        /// </summary>
-        private double defaultLength = 5.0;
+
 
         /// <summary>
         /// The default radius of circle
@@ -30,25 +27,16 @@ namespace MidTerm2App
         /// Initializes a new instance of the <see cref="Square" /> class.
         /// </summary>
         /// <param name="index">The index of the sequence</param>
-        public Square(int index)
+        public Square(double sideLength)
         {
             this.Name = "Square";
-            this.length = this.defaultLength * index;
+            this.length = sideLength;
         }
 
         /// <summary>
         /// Gets or sets the Name of the Rectangle
         /// </summary>
         private new string Name { get; set; }
-
-        /// <summary>
-        /// Sets the length of the square
-        /// </summary>
-        /// <param name="newLength">New length from user</param>
-        public void SetDefaultLength(double newLength)
-        {
-            this.defaultLength = newLength;
-        }
 
         /// <summary>
         /// Calculate the area of the Square
