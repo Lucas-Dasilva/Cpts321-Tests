@@ -16,8 +16,6 @@ namespace MidTerm2App
     /// </summary>
     public class Square : Shape
     {
-
-
         /// <summary>
         /// The default radius of circle
         /// </summary>
@@ -26,7 +24,7 @@ namespace MidTerm2App
         /// <summary>
         /// Initializes a new instance of the <see cref="Square" /> class.
         /// </summary>
-        /// <param name="index">The index of the sequence</param>
+        /// <param name="sideLength">The index of the sequence</param>
         public Square(double sideLength)
         {
             this.Name = "Square";
@@ -34,9 +32,18 @@ namespace MidTerm2App
         }
 
         /// <summary>
-        /// Gets or sets the Name of the Rectangle
+        /// Gets or sets the Name of the square
         /// </summary>
-        private new string Name { get; set; }
+        private string Name { get; set; }
+
+        /// <summary>
+        /// Gets the name of shape
+        /// </summary>
+        /// <returns>The string Square</returns>
+        public override string GetName()
+        {
+            return "Square";
+        }
 
         /// <summary>
         /// Calculate the area of the Square

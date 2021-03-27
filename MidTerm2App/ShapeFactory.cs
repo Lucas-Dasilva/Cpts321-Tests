@@ -74,7 +74,7 @@ namespace MidTerm2App
         /// <summary>
         /// Gets or sets the area of the circle
         /// </summary>
-        /// <param name="newRadius">New radius from user</param>
+        /// <returns>The default radius</returns>
         public double GetDefaultRadius()
         {
             return this.defaultRadius;
@@ -92,6 +92,7 @@ namespace MidTerm2App
         /// <summary>
         /// Gets the length of the square
         /// </summary>
+        /// <returns>Default side length</returns>
         public double GetDefaultSideLength()
         {
             return this.defaultSideLength;
@@ -115,6 +116,4 @@ namespace MidTerm2App
             this.defaultWidth = newWidth;
         }
     }
-
-
 }

@@ -88,34 +88,6 @@ namespace MidTerm2App
         }
 
         /// <summary>
-        /// Run option 1
-        /// </summary>
-        public void FirstOption()
-        {
-            // Set standard background because string.format bug
-            Console.ForegroundColor = System.ConsoleColor.White;
-            Console.BackgroundColor = System.ConsoleColor.Black;
-            Console.Clear();
-            Console.WriteLine("Option 1");
-            Console.WriteLine("\nPress any key to go back to menu...");
-            Console.ReadKey(true);
-        }
-
-        /// <summary>
-        /// Run option 2
-        /// </summary>
-        public void SecondOption()
-        {
-            // Set standard background because string.format bug
-            Console.ForegroundColor = System.ConsoleColor.White;
-            Console.BackgroundColor = System.ConsoleColor.Black;
-            Console.Clear();
-            Console.WriteLine("Option 2");
-            Console.WriteLine("\nPress any key to go back to menu...");
-            Console.ReadKey(true);
-        }
-
-        /// <summary>
         /// Display the options to console window
         /// </summary>
         private void DisplayOptions()

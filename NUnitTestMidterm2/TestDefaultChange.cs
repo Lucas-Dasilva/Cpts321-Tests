@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="TestCumulativeArea.cs" company="Lucas Da Silva 11631988">
+// <copyright file="TestDefaultChange.cs" company="Lucas Da Silva 11631988">
 //     Company copyright tag.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -15,16 +15,12 @@ namespace MidTerm2App
     [TestFixture]
     public class TestDefaultChange
     {
-     
-        //[TestCase("cscr")]
-
         /// <summary>
         /// Tests whether or not the area calculated is correct
         /// </summary>
         [Test]
         public void TestSizeChange()
         {
-            double target = 0.0;
             double expected = 3433.59;
             ShapeFactory fact = new ShapeFactory();
 
@@ -35,7 +31,7 @@ namespace MidTerm2App
             // Circle(5) = 78.54 | Square(5*2) = 100 | Circle (5*3) = 706.86 | Rectangle (4*3 * 4*4) = 192| = 1077.4
 
             // Circle(10) = 314.16 | Square(5*2) = 100 | Circle (10 * 3) = 2827.43 | Rectangle (4*3 * 4*4) = 192| = 3433.59
-            temp = shapeStruct.CumulativeArea();
+            temp = shapeStruct.SumOfArea;
 
             temp = fact.GetDefaultRadius();
 
@@ -45,7 +41,7 @@ namespace MidTerm2App
 
             shapeStruct = new ShapeStructure("c s c r", fact);
 
-            temp = shapeStruct.CumulativeArea();
+            temp = shapeStruct.SumOfArea;
 
             Assert.AreEqual(expected, temp);
         }

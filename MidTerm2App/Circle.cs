@@ -24,7 +24,7 @@ namespace MidTerm2App
         /// <summary>
         /// Initializes a new instance of the <see cref="Circle" /> class.
         /// </summary>
-        /// <param name="index">Index of sequence</param>
+        /// <param name="radius">Updated radius of circle</param>
         public Circle(double radius)
         {
             this.Name = "Circle";
@@ -34,8 +34,16 @@ namespace MidTerm2App
         /// <summary>
         /// Gets or sets the Name of the circle
         /// </summary>
-        private new string Name { get; set; }
+        private string Name { get; set; }
 
+        /// <summary>
+        /// Gets the name of shape
+        /// </summary>
+        /// <returns>The string circle</returns>
+        public override string GetName()
+        {
+            return "Circle";
+        }
 
         /// <summary>
         /// Calculate the area of the circle

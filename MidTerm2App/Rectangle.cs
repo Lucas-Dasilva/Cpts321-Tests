@@ -30,7 +30,7 @@ namespace MidTerm2App
         /// Initializes a new instance of the <see cref="Rectangle" /> class.
         /// </summary>
         /// <param name="length">the length of this rectangle</param>
-        /// <param name="width">The width of this rectange</param>
+        /// <param name="width">The width of this rectangle</param>
         public Rectangle(double length, double width)
         {
             this.Name = "Rectangle";
@@ -41,7 +41,16 @@ namespace MidTerm2App
         /// <summary>
         /// Gets or sets the Name of the Rectangle
         /// </summary>
-        private new string Name { get; set; }
+        private string Name { get; set; }
+
+        /// <summary>
+        /// Gets the name of shape
+        /// </summary>
+        /// <returns>The string Rectangle</returns>
+        public override string GetName()
+        {
+            return "Rectangle";
+        }
 
         /// <summary>
         /// Calculate the area of the Rectangle

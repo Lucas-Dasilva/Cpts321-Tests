@@ -17,9 +17,10 @@ namespace MidTerm2App
     public abstract class Shape
     {
         /// <summary>
-        /// Gets or sets the shape name
+        /// Gets the name of shape
         /// </summary>
-        public string Name { get; set; }
+        /// <returns>The string of the shape name</returns>
+        public abstract string GetName();
 
         /// <summary>
         /// Override the area of the shape, depending on what shape it is

@@ -72,10 +72,22 @@ namespace MidTerm2App
         public double SumOfArea { get; set; }
 
         /// <summary>
+        /// Prints the last sequence and all of it's shapes info.
+        /// </summary>
+        public void PrintSequenceInfo()
+        {
+            Console.WriteLine($"Sequence: \"{this.Sequence}\"\n");
+            foreach (Shape s in this.shapeList)
+            {
+                s.Info();
+            }
+        }
+
+        /// <summary>
         /// Calculates each cumulative area for each sequence input by the user
         /// </summary>
         /// <returns>Cumulative area of the shapes</returns>
-        public double CumulativeArea()
+        private double CumulativeArea()
         {
             double sumArea = 0.0;
 
