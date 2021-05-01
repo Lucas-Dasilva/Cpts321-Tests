@@ -16,7 +16,7 @@ namespace MidTerm2App
     public class TestCumulativeArea
     {
         [Test]
-        [TestCase("c s c r")]
+        [TestCase("t p")]
         [TestCase("cscr")]
 
         /// <summary>
