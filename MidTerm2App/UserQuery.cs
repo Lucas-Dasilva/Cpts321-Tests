@@ -70,6 +70,252 @@ namespace MidTerm2App
         }
 
         /// <summary>
+        /// User wants to change border type of a given shape in a sequence
+        /// </summary>
+        public void ChangeShapeBorder()
+        {
+            Console.Clear();
+            int i = 1;
+            int sequenceIndex;
+            int shapeIndex = -1;
+            int borderIndex;
+
+            // If more than one sequence was created
+            // Only one sequence was created
+            if (this.structList.Count > 1)
+            {
+                // Print the sequence and corresponding number selection
+                // Scroll through stack of structs
+                foreach (var item in this.structList)
+                {
+                    Console.WriteLine($"{i})\"{item.Sequence}\"");
+                    i++;
+                }
+
+                Console.Write("Enter digit that represents the sequence you wish to change Color of: ");
+
+                // Ask for input until, they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out sequenceIndex)) || sequenceIndex <= 0 || sequenceIndex > this.structList.Count)
+                {
+                    i = 1;
+                    Console.Clear();
+
+                    // Scroll through stack of structs
+                    foreach (var item in this.structList)
+                    {
+                        Console.WriteLine($"{i})\"{item.Sequence}\"");
+                        i++;
+                    }
+
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+            }
+            else
+            {
+                sequenceIndex = 1;
+            }
+
+            // User has entered a valid input so now we ask for which shape and then which color
+            int exitNum = this.structList.ElementAt(sequenceIndex - 1).Sequence.Length + 1;
+
+            // We want to loop until user asks to exit
+            while (shapeIndex != exitNum)
+            {
+                i = 1;
+                Console.Clear();
+                Console.WriteLine($"Sequence: \"{this.structList.ElementAt(sequenceIndex - 1).Sequence}\"");
+
+                // Print character of each sequence
+                foreach (char c in this.structList.ElementAt(sequenceIndex - 1).Sequence)
+                {
+                    Console.WriteLine($"{i})\"{c}\"");
+                    i++;
+                }
+
+                Console.WriteLine("{0}) Done changing Borders...", exitNum);
+
+                Console.Write("Enter digit that represents the character of the shape you wish to change the BORDER of: ");
+
+                // Ask for input until, they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out shapeIndex)) || shapeIndex <= 0 || shapeIndex > exitNum)
+                {
+                    i = 1;
+                    Console.Clear();
+
+                    // Print character of each sequence
+                    foreach (char c in this.structList.ElementAt(sequenceIndex - 1).Sequence)
+                    {
+                        Console.WriteLine($"{i})\"{0}\"", c);
+                        i++;
+                    }
+                    Console.WriteLine("{0}) Done changing border...", exitNum);
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+
+                // If user wishes to exit early
+                if (shapeIndex == exitNum)
+                {
+                    return;
+                }
+
+                // At this point, the user has selected a character representing a a character from the sequence, now he must select a color
+                i = 1;
+
+                Console.Clear();
+                Console.WriteLine("1) Solid\n2) Dotted\n3) Dashed\n");
+                Console.Write("Enter digit that represents the color you wish the shape to be: ");
+
+                // Ask for color input until they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out borderIndex)) || borderIndex <= 0 || borderIndex > 3)
+                {
+                    i = 1;
+                    Console.Clear();
+                    Console.WriteLine("1) Solid\n2) Dotted\n3) Dashed\n");
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+
+                // Change border to solid
+                // Change border to dotted
+                // Change border to dashed
+                if (borderIndex == 1)
+                {
+                    this.structList.ElementAt(sequenceIndex - 1).ChangeBorderOfShapeAt(shapeIndex, "Solid");
+                }
+                else if (borderIndex == 2)
+                {
+                    this.structList.ElementAt(sequenceIndex - 1).ChangeBorderOfShapeAt(shapeIndex, "Dotted");
+                }
+                else
+                {
+                    this.structList.ElementAt(sequenceIndex - 1).ChangeBorderOfShapeAt(shapeIndex, "Dashed");
+                }
+            }
+        }
+
+        /// <summary>
+        /// User wants to change the color of a given shape in a sequence
+        /// </summary>
+        public void ChangeShapeColor()
+        {
+            Console.Clear();
+            int i = 1;
+            int sequenceIndex;
+            int shapeIndex = -1;
+            int colorIndex;
+
+            // If more than one sequence was created
+            // Only one sequence was created
+            if (this.structList.Count > 1)
+            {
+                // Print the sequence and corresponding number selection
+                // Scroll through stack of structs
+                foreach (var item in this.structList)
+                {
+                    Console.WriteLine($"{i})\"{item.Sequence}\"");
+                    i++;
+                }
+
+                Console.Write("Enter digit that represents the sequence you wish to change Color of: ");
+
+                // Ask for input until, they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out sequenceIndex)) || sequenceIndex <= 0 || sequenceIndex > this.structList.Count)
+                {
+                    i = 1;
+                    Console.Clear();
+
+                    // Scroll through stack of structs
+                    foreach (var item in this.structList)
+                    {
+                        Console.WriteLine($"{i})\"{item.Sequence}\"");
+                        i++;
+                    }
+
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+            }
+            else
+            {
+                sequenceIndex = 1;
+            }
+
+            // User has entered a valid input so now we ask for which shape and then which color
+            int exitNum = this.structList.ElementAt(sequenceIndex - 1).Sequence.Length + 1;
+
+            // We want to loop until user asks to exit
+            while (shapeIndex != exitNum)
+            {
+                i = 1;
+                Console.Clear();
+                Console.WriteLine($"Sequence: \"{this.structList.ElementAt(sequenceIndex - 1).Sequence}\"");
+
+                // Print character of each sequence
+                foreach (char c in this.structList.ElementAt(sequenceIndex - 1).Sequence)
+                {
+                    Console.WriteLine($"{i})\"{c}\"");
+                    i++;
+                }
+
+                Console.WriteLine("{0}) Done changing colors...", exitNum);
+
+                Console.Write("Enter digit that represents the character of the shape you wish to change the color of: ");
+
+                // Ask for input until, they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out shapeIndex)) || shapeIndex <= 0 || shapeIndex > exitNum)
+                {
+                    i = 1;
+                    Console.Clear();
+
+                    // Print character of each sequence
+                    foreach (char c in this.structList.ElementAt(sequenceIndex - 1).Sequence)
+                    {
+                        Console.WriteLine($"{i})\"{0}\"", c);
+                        i++;
+                    }
+                    Console.WriteLine("{0}) Done changing colors...", exitNum);
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+
+                // If user wishes to exit early
+                if (shapeIndex == exitNum)
+                {
+                    return;
+                }
+
+                // At this point, the user has selected a character representing a a character from the sequence, now he must select a color
+                i = 1;
+
+                Console.Clear();
+                Console.WriteLine("1) Red\n2) Green\n3) Blue\n");
+                Console.Write("Enter digit that represents the color you wish the shape to be: ");
+
+                // Ask for color input until they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out colorIndex)) || colorIndex <= 0 || colorIndex > 3)
+                {
+                    i = 1;
+                    Console.Clear();
+                    Console.WriteLine("1) Red\n2) Green\n3) Blue\n");
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+
+                // Change color to red
+                // Change color to Green
+                // Change color to Blue
+                if (colorIndex == 1)
+                {
+                    this.structList.ElementAt(sequenceIndex - 1).ChangeColorOfShapeAt(shapeIndex, "Red");
+                }
+                else if (colorIndex == 2)
+                {
+                    this.structList.ElementAt(sequenceIndex - 1).ChangeColorOfShapeAt(shapeIndex, "Green");
+                }
+                else
+                {
+                    this.structList.ElementAt(sequenceIndex - 1).ChangeColorOfShapeAt(shapeIndex, "Blue");
+                }
+            }
+        }
+
+        /// <summary>
         /// Filters all the sequences, and displays only the shapes with the right criteria
         /// </summary>
         public void Filter()
@@ -88,6 +334,9 @@ namespace MidTerm2App
 
             // If they want to filter by shape name
             // They want to filter by area
+            // Filter by color
+            // Filter by border
+            // Return to menu
             if (pick == 1)
             {
                 Console.Clear();
@@ -164,34 +413,6 @@ namespace MidTerm2App
                 double input;
 
                 // Scroll through stack of structs
-                Console.WriteLine("1) Circles\n2) Rectangles\n3) Squares");
-
-                // Ask for input until, they enter one that is part of the list
-                while ((!int.TryParse(Console.ReadLine(), out pick)) || pick <= 0 || pick > 3)
-                {
-                    Console.Write("Try again (Digit must represent one of these sequences): ");
-                }
-                // Scroll through stack of structs
-                foreach (var l in this.structList)
-                {
-                    // Find shapes with area less than user input
-                    IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Area() <= input);
-
-                    foreach (var s in shapes)
-                    {
-                        s.Info();
-                    }
-                }
-
-                Console.Write("\nPress any key to go back to menu...");
-                Console.ReadKey(true);
-            }            
-            else if (pick == 3)
-            {
-                Console.Clear();
-                double input;
-
-                // Scroll through stack of structs
                 Console.WriteLine("Print all shapes with area less than or equal to: ");
 
                 // Ask for input until, they enter one that is part of the list
@@ -214,6 +435,188 @@ namespace MidTerm2App
 
                 Console.Write("\nPress any key to go back to menu...");
                 Console.ReadKey(true);
+            }
+            else if (pick == 3)
+            {
+                Console.Clear();
+
+                // Scroll through stack of structs
+                Console.WriteLine("1) Red\n2) Green\n3) Blue\n");
+
+                // Ask for input until, they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out pick)) || pick <= 0 || pick > 3)
+                {
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+
+                Console.Clear();
+
+                // If we want to display all shapes with color red
+                // If we want to display all shapes with color blue
+                // Else, we displaly green shapes
+                if (pick == 1)
+                {
+                    // Scroll through stack of structs
+                    foreach (var l in this.structList)
+                    {
+                        // Find shapes with area less than user input
+                        IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Color == "Red");
+
+                        if (shapes.Count() > 1)
+                        {
+                            foreach (var s in shapes)
+                            {
+                                s.Info();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Blue Shapes..");
+                        }
+                    }
+
+                    Console.Write("\nPress any key to go back to menu...");
+                    Console.ReadKey(true);
+                }
+                else if (pick == 2)
+                {
+                    // Scroll through stack of structs
+                    foreach (var l in this.structList)
+                    {
+                        // Find shapes with area less than user input
+                        IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Color == "Green");
+
+                        if (shapes.Count() > 1)
+                        {
+                            foreach (var s in shapes)
+                            {
+                                s.Info();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Green Shapes..");
+                        }
+                    }
+
+                    Console.Write("\nPress any key to go back to menu...");
+                    Console.ReadKey(true);
+                }
+                else
+                {
+                    // Scroll through stack of structs
+                    foreach (var l in this.structList)
+                    {
+                        // Find shapes with area less than user input
+                        IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Color == "Blue");
+
+                        if (shapes.Count() > 1)
+                        {
+                            foreach (var s in shapes)
+                            {
+                                s.Info();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Blue Shapes..");
+                        }
+                    }
+
+                    Console.Write("\nPress any key to go back to menu...");
+                    Console.ReadKey(true);
+                }
+            }
+            else if (pick == 4)
+            {
+                Console.Clear();
+
+                // Scroll through stack of structs
+                Console.WriteLine("1) Solid\n2) Dotted\n3) Dashed\n");
+
+                // Ask for input until, they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out pick)) || pick <= 0 || pick > 3)
+                {
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+
+                Console.Clear();
+
+                // If we want to display all shapes with color red
+                // If we want to display all shapes with color blue
+                // Else, we displaly green shapes
+                if (pick == 1)
+                {
+                    // Scroll through stack of structs
+                    foreach (var l in this.structList)
+                    {
+                        // Find shapes with area less than user input
+                        IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Border == "Solid");
+
+                        if (shapes.Count() > 1)
+                        {
+                            foreach (var s in shapes)
+                            {
+                                s.Info();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Solid bordered Shapes..");
+                        }
+                    }
+
+                    Console.Write("\nPress any key to go back to menu...");
+                    Console.ReadKey(true);
+                }
+                else if (pick == 2)
+                {
+                    // Scroll through stack of structs
+                    foreach (var l in this.structList)
+                    {
+                        // Find shapes with area less than user input
+                        IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Border == "Dotted");
+
+                        if (shapes.Count() > 1)
+                        {
+                            foreach (var s in shapes)
+                            {
+                                s.Info();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Dot bordered Shapes..");
+                        }
+                    }
+
+                    Console.Write("\nPress any key to go back to menu...");
+                    Console.ReadKey(true);
+                }
+                else
+                {
+                    // Scroll through stack of structs
+                    foreach (var l in this.structList)
+                    {
+                        // Find shapes with area less than user input
+                        IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Border == "Dashed");
+
+                        if (shapes.Count() > 1)
+                        {
+                            foreach (var s in shapes)
+                            {
+                                s.Info();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Dash bordered Shapes..");
+                        }
+                    }
+
+                    Console.Write("\nPress any key to go back to menu...");
+                    Console.ReadKey(true);
+                }
             }
             else
             {

@@ -21,7 +21,7 @@ namespace MidTerm2App
         {
             // Menu options
             string prompt = "(Use arrow keys to cycle through options and press enter to select it)";
-            string[] options = { "Add New Sequence", "Change Default Size", "Filter", "Modifiy A Sequence (Edit or Delete)", "List Sequence History", "List Shapes Created", "Print Cumulative Area", "Exit" };
+            string[] options = { "Add New Sequence", "Change Default Size", "Change A Shapes Color", "Change A Shapes Border", "Filter", "Modifiy A Sequence (Edit or Delete)", "List Sequence History", "List Shapes Created", "Print Cumulative Area", "Exit" };
 
             // Initialize objects
             Menu mainMenu = new Menu(prompt, options);
@@ -40,28 +40,36 @@ namespace MidTerm2App
                     case 1:
                         // Change default size
                         user.ChangeDefaultSize();
-                        break;                    
+                        break;
                     case 2:
+                        // Change default size
+                        user.ChangeShapeColor();
+                        break;
+                    case 3:
+                        // Change default size
+                        user.ChangeShapeBorder();
+                        break;
+                    case 4:
                         // Filter
                         user.Filter();
                         break;                    
-                    case 3:
+                    case 5:
                         // Modify sequence
                         user.ModifyHistory();
                         break;                   
-                    case 4:
+                    case 6:
                         // List Sequence History
                         user.SequenceHistory();
                         break;              
-                    case 5:
+                    case 7:
                         // List All Shapes Created and their info and cumulative area
                         user.FullHistory();
                         break;
-                    case 6:
+                    case 8:
                         // Print out the sequence name and it's cumulative area only
                         user.PrintCumulativeArea();
                         break;
-                    case 7:
+                    case 9:
                         // Exit
                         Environment.Exit(0); // Terminates Console
                         break;
@@ -69,7 +77,7 @@ namespace MidTerm2App
 
                 selectedIndex = mainMenu.Run();
             }
-            while (selectedIndex != 7);
+            while (selectedIndex != 9);
         }
     }
 }

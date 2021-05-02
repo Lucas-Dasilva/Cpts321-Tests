@@ -44,6 +44,7 @@ namespace MidTerm2App
             {
                 shape.Color = "Blue";
             }
+
             target = shapeList[0].Color;
             Assert.AreEqual(expected, target);
         }

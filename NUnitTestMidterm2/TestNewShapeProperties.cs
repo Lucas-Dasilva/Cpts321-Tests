@@ -36,6 +36,7 @@ namespace MidTerm2App
                 Shape shape = factory.CreateShape(c.ToString(), i);
                 target[i - 1] = shape.Area();
             }
+
             Assert.AreEqual(expected, target);
         }
     }

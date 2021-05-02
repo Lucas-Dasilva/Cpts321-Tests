@@ -99,7 +99,7 @@ namespace MidTerm2App
         /// <returns>The area of the Rectangle</returns>
         public override double Area()
         {
-            return Math.Round((float)(Math.Sqrt(5 * (5 + 2 * (Math.Sqrt(5)))) * this.side * this.side) / 4,2);
+            return Math.Round(0.25 * Math.Sqrt(5 * (5 + (2 * Math.Sqrt(5)))) * (this.side * this.side), 2);
         }
 
         /// <summary>

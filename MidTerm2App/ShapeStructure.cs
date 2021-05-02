@@ -72,6 +72,26 @@ namespace MidTerm2App
         public double SumOfArea { get; set; }
 
         /// <summary>
+        /// Given an index and a color, this function will change that shapes color
+        /// </summary>
+        /// <param name="shapeIndex">The location of the shape in the shape list</param>
+        /// <param name="newColor">the new color of the shape</param>
+        public void ChangeColorOfShapeAt(int shapeIndex, string newColor)
+        {
+            this.shapeList[shapeIndex - 1].Color = newColor;
+        }        
+        
+        /// <summary>
+        /// Given an index and a border style, this function will change that shapes border
+        /// </summary>
+        /// <param name="shapeIndex">The location of the shape in the shape list</param>
+        /// <param name="newBorder">The border style of the shape</param>
+        public void ChangeBorderOfShapeAt(int shapeIndex, string newBorder)
+        {
+            this.shapeList[shapeIndex].Border = newBorder;
+        }
+
+        /// <summary>
         /// Prints the last sequence and all of it's shapes info.
         /// </summary>
         public void PrintSequenceInfo()

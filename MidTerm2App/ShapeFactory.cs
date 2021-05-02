@@ -67,26 +67,6 @@ namespace MidTerm2App
         private string defaultBorder = "Dashed";
 
         /// <summary>
-        /// Gets or sets default top side length of trapezoid
-        /// </summary>
-        public double DefaultTopSide { get; set; }
-        
-        /// <summary>
-        /// Gets or sets default bottom side of trapezoid
-        /// </summary>
-        public double DefaultBotSide { get; set; }
-
-        /// <summary>
-        /// Gets or sets default height of trapezoid
-        /// </summary>
-        public double DefaultHeight { get; set; }
-
-        /// <summary>
-        /// Gets or sets default pentagon side lengths
-        /// </summary>
-        public double DefaultPenSide { get; set; }
-
-        /// <summary>
         /// Factory class for creating each shape depending on the character input and which order it comes in
         /// </summary>
         /// <param name="c">Shape character</param>
