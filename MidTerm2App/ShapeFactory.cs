@@ -22,6 +22,26 @@ namespace MidTerm2App
         private double defaultRadius = 5.0;
 
         /// <summary>
+        /// default top side of trapezoid
+        /// </summary>
+        private double defaultTopSide = 5.0;
+
+        /// <summary>
+        /// Default bottom side length of trapezoid
+        /// </summary>
+        private double defaultBotSide = 6.0;
+
+        /// <summary>
+        /// Default height of trapezoid
+        /// </summary>
+        private double defaultHeight = 5.0;
+
+        /// <summary>
+        /// Default pentagon side lengths
+        /// </summary>
+        private double defaultPenside = 3.0;
+
+        /// <summary>
         /// The default length of rectangle
         /// </summary>
         private double defaultLength = 3.0;
@@ -37,6 +57,36 @@ namespace MidTerm2App
         private double defaultSideLength = 5.0;
 
         /// <summary>
+        /// The default color
+        /// </summary>
+        private string defaultColor = "Red";
+
+        /// <summary>
+        /// The default border style
+        /// </summary>
+        private string defaultBorder = "Dashed";
+
+        /// <summary>
+        /// Gets or sets default top side length of trapezoid
+        /// </summary>
+        public double DefaultTopSide { get; set; }
+        
+        /// <summary>
+        /// Gets or sets default bottom side of trapezoid
+        /// </summary>
+        public double DefaultBotSide { get; set; }
+
+        /// <summary>
+        /// Gets or sets default height of trapezoid
+        /// </summary>
+        public double DefaultHeight { get; set; }
+
+        /// <summary>
+        /// Gets or sets default pentagon side lengths
+        /// </summary>
+        public double DefaultPenSide { get; set; }
+
+        /// <summary>
         /// Factory class for creating each shape depending on the character input and which order it comes in
         /// </summary>
         /// <param name="c">Shape character</param>
@@ -49,13 +99,19 @@ namespace MidTerm2App
             {
                 case "c":
                     // Default radius * the index value
-                    return new Circle(index * this.defaultRadius) { };
+                    return new Circle(index * this.defaultRadius, this.defaultColor, this.defaultBorder) { };
                 case "s":
                     // Default side length * the index value
-                    return new Square(index * this.defaultSideLength) { };
+                    return new Square(index * this.defaultSideLength, this.defaultColor, this.defaultBorder) { };
                 case "r":
                     // Default length and width * the index value
-                    return new Rectangle(index * this.defaultLength, index * this.defaultWidth) { };
+                    return new Rectangle(index * this.defaultLength, index * this.defaultWidth, this.defaultColor, this.defaultBorder) { };
+                case "t":
+                    // Default values for trapezium
+                    return new Trapezium(index * this.defaultTopSide, index * this.defaultBotSide, index * this.defaultHeight, this.defaultColor, this.defaultBorder) { };
+                case "p":
+                    // Default values for pentagon
+                    return new Pentagon(index * this.defaultPenside, this.defaultColor, this.defaultBorder) { };
                 default:
                     // if it is not any of the operators that we support, throw an exception:
                     throw new NotSupportedException("Shape " + c + " not supported yet!");
@@ -114,6 +170,42 @@ namespace MidTerm2App
         public void SetDefaultWidth(double newWidth)
         {
             this.defaultWidth = newWidth;
+        }
+
+        /// <summary>
+        /// Gets the default color of shapes
+        /// </summary>
+        /// <returns>Default side length</returns>
+        public string GetDefaultColor()
+        {
+            return this.defaultColor;
+        }
+
+        /// <summary>
+        /// Sets the default color of the shapes
+        /// </summary>
+        /// <param name="newColor">New color from user</param>
+        public void SetDefaultColor(string newColor)
+        {
+            this.defaultColor = newColor;
+        }
+
+        /// <summary>
+        /// Gets the default border of shape
+        /// </summary>
+        /// <returns>Default side length</returns>
+        public string GetDefaultBorder()
+        {
+            return this.defaultBorder;
+        }
+
+        /// <summary>
+        /// Sets the default border of shapes
+        /// </summary>
+        /// <param name="newBorder">New border from user</param>
+        public void SetDefaultBorder(string newBorder)
+        {
+            this.defaultBorder = newBorder;
         }
     }
 }

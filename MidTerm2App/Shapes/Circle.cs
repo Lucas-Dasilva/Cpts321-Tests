@@ -20,21 +20,69 @@ namespace MidTerm2App
         /// The default radius of circle
         /// </summary>
         private double radius;
+        
+        /// <summary>
+        /// Default color of shape
+        /// </summary>
+        private string color;
+
+        /// <summary>
+        /// Default border style for shape
+        /// </summary>
+        private string border;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Circle" /> class.
         /// </summary>
         /// <param name="radius">Updated radius of circle</param>
-        public Circle(double radius)
+        /// <param name="color">The Color of this shape</param>
+        /// <param name="border">The Border of this shape</param>
+        public Circle(double radius, string color, string border)
         {
             this.Name = "Circle";
             this.radius = radius;
+            this.color = color;
+            this.border = border;
         }      
         
         /// <summary>
         /// Gets or sets the Name of the circle
         /// </summary>
-        private string Name { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the color of the shape
+        /// </summary>
+        /// <returns></returns>
+        public override string Color
+        {
+            get
+            {
+                return this.color;
+            }
+
+            set
+            {
+                this.color = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the border type of the shape
+        /// </summary>
+        /// <returns></returns>
+        public override string Border
+        {
+            get
+            {
+                return this.border;
+            }
+
+            set
+            {
+                this.border = value;
+            }
+        }
 
         /// <summary>
         /// Gets the name of shape
@@ -59,7 +107,7 @@ namespace MidTerm2App
         /// </summary>
         public override void Info()
         {
-            Console.WriteLine("Name: {0}\nRadius: {1}\nArea: {2:f2}\n", this.Name, this.radius, Math.PI * Math.Pow(this.radius, 2.0));
+            Console.WriteLine("Name: {0}\nRadius: {1}\nArea: {2:f2}\nColor: {3}\nBorder: {4}\n", this.Name, this.radius, Math.PI * Math.Pow(this.radius, 2.0), this.color, this.border);
         }
     }
 }

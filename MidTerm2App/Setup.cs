@@ -21,7 +21,7 @@ namespace MidTerm2App
         {
             // Menu options
             string prompt = "(Use arrow keys to cycle through options and press enter to select it)";
-            string[] options = { "Add New Sequence", "Change Default Size", "Filter", "Modifiy A Sequence", "List Sequence History", "List Shapes Created", "Print Cumulative Area", "Exit" };
+            string[] options = { "Add New Sequence", "Change Default Size", "Filter", "Modifiy A Sequence (Edit or Delete)", "List Sequence History", "List Shapes Created", "Print Cumulative Area", "Exit" };
 
             // Initialize objects
             Menu mainMenu = new Menu(prompt, options);

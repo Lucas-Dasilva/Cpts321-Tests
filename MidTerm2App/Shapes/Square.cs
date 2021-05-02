@@ -22,19 +22,67 @@ namespace MidTerm2App
         private double length;
 
         /// <summary>
+        /// Default color of shape
+        /// </summary>
+        private string color;
+
+        /// <summary>
+        /// Default border style for shape
+        /// </summary>
+        private string border;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Square" /> class.
         /// </summary>
         /// <param name="sideLength">The index of the sequence</param>
-        public Square(double sideLength)
+        /// <param name="color">The Color of this shape</param>
+        /// <param name="border">The Border of this shape</param>
+        public Square(double sideLength, string color, string border)
         {
             this.Name = "Square";
             this.length = sideLength;
+            this.color = color;
+            this.border = border;
         }
 
         /// <summary>
         /// Gets or sets the Name of the square
         /// </summary>
-        private string Name { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the color of the shape
+        /// </summary>
+        /// <returns></returns>
+        public override string Color
+        {
+            get
+            {
+                return this.color;
+            }
+
+            set
+            {
+                this.color = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the border type of the shape
+        /// </summary>
+        /// <returns></returns>
+        public override string Border
+        {
+            get
+            {
+                return this.border;
+            }
+
+            set
+            {
+                this.border = value;
+            }
+        }
 
         /// <summary>
         /// Gets the name of shape
@@ -59,7 +107,7 @@ namespace MidTerm2App
         /// </summary>
         public override void Info()
         {
-            Console.WriteLine("Name: {0}\nDimensions: {1} X {2}\nArea: {3}\n", this.Name, this.length, this.length, this.length * this.length);
+            Console.WriteLine("Name: {0}\nDimensions: {1} X {2}\nArea: {3}\nColor: {4}\nBorder: {5}\n", this.Name, this.length, this.length, this.length * this.length, this.color, this.border);
         }
     }
 }

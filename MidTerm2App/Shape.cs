@@ -17,6 +17,18 @@ namespace MidTerm2App
     public abstract class Shape
     {
         /// <summary>
+        /// Gets or sets Color of shape, anything really
+        /// </summary>
+        /// <returns></returns>
+        public abstract string Color { get; set; }
+
+        /// <summary>
+        /// Gets or sets Border of shape..Solid line, Dotted line, Dashed line
+        /// </summary>
+        /// <returns></returns>
+        public abstract string Border { get; set; }
+
+        /// <summary>
         /// Gets the name of shape
         /// </summary>
         /// <returns>The string of the shape name</returns>

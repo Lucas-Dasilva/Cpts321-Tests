@@ -16,8 +16,7 @@ namespace MidTerm2App
     public class TestCumulativeArea
     {
         [Test]
-        [TestCase("t p")]
-        [TestCase("cscr")]
+        [TestCase("csrtp")]
 
         /// <summary>
         /// Tests whether or not the area calculated is correct
@@ -26,7 +25,7 @@ namespace MidTerm2App
         public void TestArea(string expression)
         {
             double target = 0.0;
-            double expected = 1077.4;
+            double expected = 1113.65;
 
             ShapeFactory fact = new ShapeFactory();
             ShapeStructure shapeStruct = new ShapeStructure(expression, fact);

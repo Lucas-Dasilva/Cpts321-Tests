@@ -43,16 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Circle.cs" />
+    <Compile Include="Shapes\Circle.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Shapes\Pentagon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rectangle.cs" />
+    <Compile Include="Shapes\Rectangle.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ShapeFactory.cs" />
     <Compile Include="ShapeStructure.cs" />
-    <Compile Include="Square.cs" />
+    <Compile Include="Shapes\Square.cs" />
+    <Compile Include="Shapes\Trapezium.cs" />
     <Compile Include="UserQuery.cs" />
   </ItemGroup>
   <ItemGroup>

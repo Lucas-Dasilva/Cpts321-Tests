@@ -28,7 +28,7 @@ namespace MidTerm2App
             ShapeStructure shapeStruct = new ShapeStructure("c s c r", fact);
             sequenceStack.Push(shapeStruct);
 
-            shapeStruct = new ShapeStructure("c c r r", fact);
+            shapeStruct = new ShapeStructure("c t p t p", fact);
             sequenceStack.Push(shapeStruct);
 
             shapeStruct = new ShapeStructure("r r c r", fact);

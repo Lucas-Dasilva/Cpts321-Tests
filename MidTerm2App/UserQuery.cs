@@ -43,19 +43,20 @@ namespace MidTerm2App
         {
             Console.Clear();
             string line;
-            Console.WriteLine("Please enter a sequence of shapes ('c','r','s'): ");
+            Console.WriteLine("Please enter a sequence of shapes ('c','r','s','t','p'): ");
+
             // Ask for input until, they enter one that is part of the list
             while (true)
             {
-
                 // get the user input for every iteration, allowing to exit at will
                 line = Console.ReadLine();
-                if (CheckInput(line))
+                if (this.CheckInput(line))
                 {
                     break; 
                 }
+
                 Console.Clear();
-                Console.Write("Please try again, only 'c', 's', and 'r' characters are allowed:");
+                Console.Write("Please try again, only 'c', 's','t','p' and 'r' characters are allowed:");
 
                 // this is what will happen in the loop body since we didn't exit
                 // put whatever note stuff you want to execute again and again in here
@@ -77,10 +78,10 @@ namespace MidTerm2App
             int pick = -1;
 
             // Scroll through stack of structs
-            Console.WriteLine("1) Filter by shape name\n2) Filter by area\n3) Back to menu");
+            Console.WriteLine("1) Filter by shape name\n2) Filter by area\n3) Filter by Color\n4) Filter by Border\n5) Back to menu");
 
             // Ask for input until, they enter one that is part of the list
-            while ((!int.TryParse(Console.ReadLine(), out pick)) || pick <= 0 || pick > 3)
+            while ((!int.TryParse(Console.ReadLine(), out pick)) || pick <= 0 || pick > 5)
             {
                 Console.Write("Try again (Digit must represent one of these sequences): ");
             }
@@ -158,6 +159,34 @@ namespace MidTerm2App
                 }
             }
             else if (pick == 2)
+            {
+                Console.Clear();
+                double input;
+
+                // Scroll through stack of structs
+                Console.WriteLine("1) Circles\n2) Rectangles\n3) Squares");
+
+                // Ask for input until, they enter one that is part of the list
+                while ((!int.TryParse(Console.ReadLine(), out pick)) || pick <= 0 || pick > 3)
+                {
+                    Console.Write("Try again (Digit must represent one of these sequences): ");
+                }
+                // Scroll through stack of structs
+                foreach (var l in this.structList)
+                {
+                    // Find shapes with area less than user input
+                    IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Area() <= input);
+
+                    foreach (var s in shapes)
+                    {
+                        s.Info();
+                    }
+                }
+
+                Console.Write("\nPress any key to go back to menu...");
+                Console.ReadKey(true);
+            }            
+            else if (pick == 3)
             {
                 Console.Clear();
                 double input;
@@ -395,11 +424,11 @@ namespace MidTerm2App
         /// <summary>
         /// Check user input for characters that are not allowed
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="input">input string</param>
         /// <returns>true if there is a character not allowed in the input, else otherwise</returns>
-        bool CheckInput(string input)
+        public bool CheckInput(string input)
         {
-            string allowableLetters = "csr ";
+            string allowableLetters = "csrtp ";
 
             // iterate input
             foreach (char c in input)
