@@ -19,17 +19,18 @@ namespace MidTerm2App
     public class TestLoadSave
     {
         /// <summary>
-        /// Tests wheter the file we save is equal to the file that we load up
+        /// Checks if loading saving functions are equal
         /// </summary>
+        /// <param name="sequence">first sequence in list</param>
+        /// <param name="sequence2">second sequence in list</param>
         [Test]
-        [TestCase("tptp","tptp")]
-        [TestCase("csrt","csrp")]
-        [TestCase("cctp","tctp")]
+        [TestCase("tptp", "tptp")]
+        [TestCase("csrt", "csrp")]
+        [TestCase("cctp", "tctp")]
         public void TestLoadingAndSaving(string sequence, string sequence2)
         {
             LoadSave ls = new LoadSave();
             
-            //List<ShapeStructure> structList = new List<ShapeStructure>();
             ShapeFactory shapeFact = new ShapeFactory();
             ShapeFactory shapeFact2 = new ShapeFactory();
             ShapeStructure struct1 = new ShapeStructure(sequence, shapeFact);
@@ -44,38 +45,43 @@ namespace MidTerm2App
 
             loadedList = ls.LoadFromXML(shapeFact);
 
-            for(int i =0; i < loadedList.Count; i++)
+            for (int i = 0; i < loadedList.Count; i++)
             {
-                ScrambledEquals(loadedList[i].ShapeList, savedList[i].ShapeList);
+                this.ScrambledEquals(loadedList[i].ShapeList, savedList[i].ShapeList);
             }
         }
 
         /// <summary>
-        /// Used to compare shapelist property values
+        /// Used to compare shape list property values
         /// </summary>
         /// <param name="list1">first list of shapes</param>
         /// <param name="list2">Second list of shapes</param>
-        /// <returns>True if the listt of shapes are equal, false otherwise</returns>
-        public static bool ScrambledEquals(List<Shape> list1, List<Shape> list2)
+        /// <returns>True if the list of shapes are equal, false otherwise</returns>
+        public bool ScrambledEquals(List<Shape> list1, List<Shape> list2)
         {
             // Compare each property
-            for(int i = 0; i < list1.Count; i++)
+            for (int i = 0; i < list1.Count; i++)
             {
-                if(list1[i].Area != list2[i].Area)
+                // Compare area
+                if (list1[i].Area != list2[i].Area)
                 {
                     return false;
                 }
+
+                // Compare border style
                 if (list1[i].Border != list2[i].Border)
                 {
                     return false;
                 }
+                
+                // Compare color
                 if (list1[i].Color != list2[i].Color)
                 {
                     return false;
                 }
             }
+
             return true;
         }
     }
 }
-
