@@ -27,15 +27,27 @@ namespace MidTerm2App
         [TestCase("cctp","tctp")]
         public void TestLoadingAndSaving(string sequence, string sequence2)
         {
-
+            LoadSave ls = new LoadSave();
+            
             //List<ShapeStructure> structList = new List<ShapeStructure>();
             ShapeFactory shapeFact = new ShapeFactory();
             ShapeFactory shapeFact2 = new ShapeFactory();
             ShapeStructure struct1 = new ShapeStructure(sequence, shapeFact);
             ShapeStructure struct2 = new ShapeStructure(sequence2, shapeFact2);
+            List<ShapeStructure> savedList = new List<ShapeStructure>();
+            List<ShapeStructure> loadedList = new List<ShapeStructure>();
 
-            // Add the sequence and the shape structure into the stack
-            ScrambledEquals(struct1.ShapeList, struct2.ShapeList);
+            savedList.Add(struct1);
+            savedList.Add(struct2);
+
+            ls.SaveToXML(savedList);
+
+            loadedList = ls.LoadFromXML(shapeFact);
+
+            for(int i =0; i < loadedList.Count; i++)
+            {
+                ScrambledEquals(loadedList[i].ShapeList, savedList[i].ShapeList);
+            }
         }
 
         /// <summary>
