@@ -7,9 +7,12 @@ namespace MidTerm2App
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using System.Xml;
 
     /// <summary>
     /// This class is used to perform queries such as filter, search, delete
@@ -20,7 +23,12 @@ namespace MidTerm2App
         /// A Stack, that holds the struct of shapes
         /// shapes created from the sequence.
         /// </summary>
-        private List<ShapeStructure> structList = new List<ShapeStructure>();
+        private List<ShapeStructure> structList;
+
+        /// <summary>
+        /// Load and save class
+        /// </summary>
+        private LoadSave ls;
 
         /// <summary>
         /// The shape factory, we only need one instance so we create it in this class
@@ -32,8 +40,28 @@ namespace MidTerm2App
         /// </summary>
         public UserQuery()
         {
-            // First thing is to ask user for a new sequence
-            this.AskForSequence();
+            this.structList = new List<ShapeStructure>();
+            this.ls = new LoadSave();
+            this.shapeFact = new ShapeFactory();
+        }
+
+        /// <summary>
+        /// Check if user has created at least one sequence before accessing certain functions
+        /// </summary>
+        /// <returns>Returns true if they are not allowed and false otherwise</returns>
+        public bool NotAllowedToEnter()
+        {
+            if (this.structList.Count == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Make sure a sequence has been loaded or created first!!");
+                Console.Write("\nPress any key to go back to menu...");
+                Console.ReadKey(true);
+
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -70,10 +98,53 @@ namespace MidTerm2App
         }
 
         /// <summary>
+        /// Call load from xml method from LoadSave class and load the file into the struct list
+        /// </summary>
+        public void LoadFromXML()
+        {
+            Console.Clear();
+            this.structList = this.ls.LoadFromXML(this.shapeFact);
+            if (this.structList == null)
+            {
+                Console.WriteLine("Failed to load file..");
+                Console.Write("\nPress any key to go back to menu...");
+                Console.ReadKey(true);
+            }
+            else
+            {
+                Console.WriteLine("Sussfully loaded file!");
+                Console.Write("\nPress any key to go back to menu...");
+                Console.ReadKey(true);
+            }
+        }
+
+        /// <summary>
+        /// Save the struct list into an xml file
+        /// </summary>
+        public void SaveToXML()
+        {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
+            this.ls.SaveToXML(this.structList);
+            Console.Clear();
+            Console.WriteLine("Sussfully Saved file!");
+            Console.Write("\nPress any key to go back to menu...");
+            Console.ReadKey(true);
+        }
+
+        /// <summary>
         /// User wants to change border type of a given shape in a sequence
         /// </summary>
         public void ChangeShapeBorder()
         {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
             Console.Clear();
             int i = 1;
             int sequenceIndex;
@@ -145,9 +216,10 @@ namespace MidTerm2App
                     // Print character of each sequence
                     foreach (char c in this.structList.ElementAt(sequenceIndex - 1).Sequence)
                     {
-                        Console.WriteLine($"{i})\"{0}\"", c);
+                        Console.WriteLine($"{i})\"{c}\"");
                         i++;
                     }
+
                     Console.WriteLine("{0}) Done changing border...", exitNum);
                     Console.Write("Try again (Digit must represent one of these sequences): ");
                 }
@@ -197,6 +269,11 @@ namespace MidTerm2App
         /// </summary>
         public void ChangeShapeColor()
         {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
             Console.Clear();
             int i = 1;
             int sequenceIndex;
@@ -268,9 +345,10 @@ namespace MidTerm2App
                     // Print character of each sequence
                     foreach (char c in this.structList.ElementAt(sequenceIndex - 1).Sequence)
                     {
-                        Console.WriteLine($"{i})\"{0}\"", c);
+                        Console.WriteLine($"{i})\"{c}\"", c);
                         i++;
                     }
+
                     Console.WriteLine("{0}) Done changing colors...", exitNum);
                     Console.Write("Try again (Digit must represent one of these sequences): ");
                 }
@@ -320,6 +398,11 @@ namespace MidTerm2App
         /// </summary>
         public void Filter()
         {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
             Console.Clear();
             int pick = -1;
 
@@ -425,7 +508,7 @@ namespace MidTerm2App
                 foreach (var l in this.structList)
                 {
                     // Find shapes with area less than user input
-                    IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Area() <= input);
+                    IEnumerable<Shape> shapes = l.ShapeList.Where(t => t.Area <= input);
 
                     foreach (var s in shapes)
                     {
@@ -469,10 +552,6 @@ namespace MidTerm2App
                                 s.Info();
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("No Blue Shapes..");
-                        }
                     }
 
                     Console.Write("\nPress any key to go back to menu...");
@@ -493,10 +572,6 @@ namespace MidTerm2App
                                 s.Info();
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("No Green Shapes..");
-                        }
                     }
 
                     Console.Write("\nPress any key to go back to menu...");
@@ -516,10 +591,6 @@ namespace MidTerm2App
                             {
                                 s.Info();
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("No Blue Shapes..");
                         }
                     }
 
@@ -560,10 +631,6 @@ namespace MidTerm2App
                                 s.Info();
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("No Solid bordered Shapes..");
-                        }
                     }
 
                     Console.Write("\nPress any key to go back to menu...");
@@ -583,10 +650,6 @@ namespace MidTerm2App
                             {
                                 s.Info();
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("No Dot bordered Shapes..");
                         }
                     }
 
@@ -608,10 +671,6 @@ namespace MidTerm2App
                                 s.Info();
                             }
                         }
-                        else
-                        {
-                            Console.WriteLine("No Dash bordered Shapes..");
-                        }
                     }
 
                     Console.Write("\nPress any key to go back to menu...");
@@ -629,6 +688,11 @@ namespace MidTerm2App
         /// </summary>
         public void PrintCumulativeArea()
         {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
             Console.Clear();
 
             // Scroll through struct
@@ -647,6 +711,11 @@ namespace MidTerm2App
         /// </summary>
         public void ModifyHistory()
         {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
             Console.Clear();
             int i = 1;
             int pick = -1;
@@ -695,7 +764,21 @@ namespace MidTerm2App
             {
                 Console.Clear();
                 Console.Write($"Please enter a new sequence to replace the current \"{this.structList.ElementAt(pick - 1).Sequence}\":");
-                string seq = Console.ReadLine();
+                string seq;
+
+                // Ask for input until, they enter one that is part of the list
+                while (true)
+                {
+                    // get the user input for every iteration, allowing to exit at will
+                    seq = Console.ReadLine();
+                    if (this.CheckInput(seq))
+                    {
+                        break;
+                    }
+
+                    Console.Clear();
+                    Console.Write("Please try again, only 'c', 's','t','p' and 'r' characters are allowed:");
+                }
 
                 // Ask user for a sequence and pass to shape struct
                 ShapeStructure editedSequence = new ShapeStructure(seq, this.shapeFact);
@@ -719,10 +802,10 @@ namespace MidTerm2App
             do
             {
                 Console.Clear();
-                Console.WriteLine("Which shape would you like to change size for? ('c','r','s'): ");
+                Console.WriteLine("Which shape would you like to change size for? ('c','r','s','t','p'): ");
                 seq = Console.ReadLine();
             }
-            while (!string.Equals(seq, "c") && !string.Equals(seq, "r") && !string.Equals(seq, "s"));
+            while (!string.Equals(seq, "c") && !string.Equals(seq, "r") && !string.Equals(seq, "s") && !string.Equals(seq, "t") && !string.Equals(seq, "p"));
 
             // If input is == c, get new default radius
             // else if input is == r, get new rectangle dimensions
@@ -767,6 +850,46 @@ namespace MidTerm2App
                 this.shapeFact.SetDefaultLength(length);
                 this.shapeFact.SetDefaultWidth(width);
             }
+            else if (seq == "t")
+            {
+                double topSide;
+                double botSide;
+
+                Console.Write("Please enter new top side length for Trapezium: ");
+
+                // Ask for new dimensions until they enter an appropriate input
+                while (!double.TryParse(Console.ReadLine(), out topSide))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Try again (Must be positive double): ");
+                }
+
+                Console.Write("Please enter new bottom side length for Trapezium: ");
+
+                while (!double.TryParse(Console.ReadLine(), out botSide))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Try again (Must be positive double): ");
+                }
+
+                this.shapeFact.SetDefaultBotSide(botSide);
+                this.shapeFact.SetDefaultTopSide(topSide);
+            }
+            else if (seq == "p")
+            {
+                double penSide;
+
+                Console.Write("Please enter new Length for Pentagon: ");
+
+                // Ask for new dimensions until they enter an appropriate input
+                while (!double.TryParse(Console.ReadLine(), out penSide))
+                {
+                    Console.Clear();
+                    Console.WriteLine("Try again (Must be positive double): ");
+                }
+
+                this.shapeFact.SetDefaultPentagonSide(penSide);
+            }
             else
             {
                 double sideLength;
@@ -789,6 +912,11 @@ namespace MidTerm2App
         /// </summary>
         public void SequenceHistory()
         {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
             Console.Clear();
             Console.WriteLine("(From oldest to newest)");
             int i = 1;
@@ -809,6 +937,11 @@ namespace MidTerm2App
         /// </summary>
         public void FullHistory()
         {
+            if (this.NotAllowedToEnter())
+            {
+                return;
+            }
+
             Console.Clear();
             Console.WriteLine("(From oldest to newest)");
             

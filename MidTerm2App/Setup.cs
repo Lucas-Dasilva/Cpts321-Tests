@@ -8,6 +8,8 @@ namespace MidTerm2App
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Windows.Forms;
 
     /// <summary>
     /// Sets up the menu and the project
@@ -21,7 +23,7 @@ namespace MidTerm2App
         {
             // Menu options
             string prompt = "(Use arrow keys to cycle through options and press enter to select it)";
-            string[] options = { "Add New Sequence", "Change Default Size", "Change A Shapes Color", "Change A Shapes Border", "Filter", "Modifiy A Sequence (Edit or Delete)", "List Sequence History", "List Shapes Created", "Print Cumulative Area", "Exit" };
+            string[] options = { "Add a Sequence", "Change Default Shape Size", "Change Border Style", "Change Shape Color", "List Created Shapes", "View Sequence History", "Modifiy A Sequence (Edit or Delete)", "Print Cumulative Area of Sequences", "Filter Shapes Based on Criteria", "Save to XML File", "Load from XML File", "Exit" };
 
             // Initialize objects
             Menu mainMenu = new Menu(prompt, options);
@@ -34,50 +36,58 @@ namespace MidTerm2App
                 switch (selectedIndex)
                 {
                     case 0:
-                        // Add new sequence
+                        // ask for a new sequence
                         user.AskForSequence();
                         break;
                     case 1:
-                        // Change default size
+                        // Change default values of shapes
                         user.ChangeDefaultSize();
                         break;
                     case 2:
-                        // Change default size
-                        user.ChangeShapeColor();
-                        break;
-                    case 3:
-                        // Change default size
+                        // Change a certain shaper border
                         user.ChangeShapeBorder();
                         break;
+                    case 3:
+                        // Change a certain shapes color
+                        user.ChangeShapeColor();
+                        break;
                     case 4:
-                        // Filter
-                        user.Filter();
-                        break;                    
-                    case 5:
-                        // Modify sequence
-                        user.ModifyHistory();
-                        break;                   
-                    case 6:
-                        // List Sequence History
-                        user.SequenceHistory();
-                        break;              
-                    case 7:
                         // List All Shapes Created and their info and cumulative area
                         user.FullHistory();
                         break;
-                    case 8:
-                        // Print out the sequence name and it's cumulative area only
+                    case 5:
+                        // List only the sequence history, no info, just a string
+                        user.SequenceHistory();
+                        break;
+                    case 6:
+                        // edit or delete a sequence
+                        user.ModifyHistory();
+                        break;
+                    case 7:
+                        // print the culmulative area for each sequence
                         user.PrintCumulativeArea();
                         break;
+                    case 8:
+                        // Filter based on certain criterias
+                        user.Filter();
+                        break;                    
                     case 9:
+                        // Save to file
+                        user.SaveToXML();
+                        break;                   
+                    case 10:
+                        // Load file
+                        user.LoadFromXML();
+                        break;              
+                    case 11:
                         // Exit
-                        Environment.Exit(0); // Terminates Console
+                        Environment.Exit(0); 
                         break;
                 }
 
                 selectedIndex = mainMenu.Run();
             }
-            while (selectedIndex != 9);
+            while (selectedIndex != 11);
         }
     }
 }

@@ -17,6 +17,11 @@ namespace MidTerm2App
     public class Square : Shape
     {
         /// <summary>
+        /// Area of circle
+        /// </summary>
+        private double area;
+
+        /// <summary>
         /// The default radius of circle
         /// </summary>
         private double length;
@@ -43,12 +48,40 @@ namespace MidTerm2App
             this.length = sideLength;
             this.color = color;
             this.border = border;
+            this.area = this.GetArea();
         }
 
         /// <summary>
         /// Gets or sets the Name of the square
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Get the area of shape
+        /// </summary>
+        public override double Area
+        {
+            get
+            {
+                return this.area;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the length of square
+        /// </summary>
+        public double LengthSquare
+        {
+            get
+            {
+                return this.length;
+            }
+
+            set
+            {
+                this.length = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the color of the shape
@@ -97,7 +130,7 @@ namespace MidTerm2App
         /// Calculate the area of the Square
         /// </summary>
         /// <returns>The area of the Square</returns>
-        public override double Area()
+        public double GetArea()
         {
             return this.length * this.length;
         }

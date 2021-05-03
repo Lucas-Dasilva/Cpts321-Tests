@@ -88,7 +88,7 @@ namespace MidTerm2App
         /// <param name="newBorder">The border style of the shape</param>
         public void ChangeBorderOfShapeAt(int shapeIndex, string newBorder)
         {
-            this.shapeList[shapeIndex].Border = newBorder;
+            this.shapeList[shapeIndex - 1].Border = newBorder;
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace MidTerm2App
             // Calculate the cumulative area of the shape list
             foreach (Shape s in this.shapeList)
             {
-                sumArea += s.Area();
+                sumArea += s.Area;
             }
 
             return Math.Round(sumArea, 2);

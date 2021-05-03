@@ -17,6 +17,11 @@ namespace MidTerm2App
     public class Trapezium : Shape
     {
         /// <summary>
+        /// Area of circle
+        /// </summary>
+        private double area;
+
+        /// <summary>
         /// The default side1 of Trapezium
         /// </summary>
         private double a;
@@ -57,6 +62,7 @@ namespace MidTerm2App
             this.height = height;
             this.color = color;
             this.border = border;
+            this.area = this.GetArea();
         }
 
         /// <summary>
@@ -65,9 +71,67 @@ namespace MidTerm2App
         public string Name { get; set; }
 
         /// <summary>
-        /// Return the color of the shape
+        /// Get the area of shape
         /// </summary>
-        /// <returns></returns>
+        public override double Area
+        {
+            get
+            {
+                return this.area;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the bottom side of trapezoid
+        /// </summary>
+        public double TopSide
+        {
+            get
+            {
+                return this.a;
+            }
+
+            set
+            {
+                this.a = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the bottom side of trapezoid
+        /// </summary>
+        public double BottomSide
+        {
+            get
+            {
+                return this.b;
+            }
+
+            set
+            {
+                this.b = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the height
+        /// </summary>
+        public double Height
+        {
+            get
+            {
+                return this.height;
+            }
+
+            set
+            {
+                this.height = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the color
+        /// </summary>
         public override string Color
         {
             get
@@ -111,7 +175,7 @@ namespace MidTerm2App
         /// Calculate the area of the Rectangle
         /// </summary>
         /// <returns>The area of the Rectangle</returns>
-        public override double Area()
+        public double GetArea()
         {
             return Math.Round(0.5 * (this.a + this.b) * this.height, 2);
         }
@@ -121,7 +185,7 @@ namespace MidTerm2App
         /// </summary>
         public override void Info()
         {
-            Console.WriteLine("Name: {0}\nSide 1: {1}\nSide 2: {2}\nHeight: {3}\nArea: {4}\nColor: {5}\nBorder: {6}\n", this.Name, this.a, this.b, this.height, this.Area(), this.color, this.border);
+            Console.WriteLine("Name: {0}\nSide 1: {1}\nSide 2: {2}\nHeight: {3}\nArea: {4}\nColor: {5}\nBorder: {6}\n", this.Name, this.a, this.b, this.height, this.Area, this.color, this.border);
         }
     }
 }

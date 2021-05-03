@@ -187,5 +187,32 @@ namespace MidTerm2App
         {
             this.defaultBorder = newBorder;
         }
+
+        /// <summary>
+        /// Sets the default top side length of trapezoid
+        /// </summary>
+        /// <param name="newTopSide">New side length</param>
+        public void SetDefaultTopSide(double newTopSide)
+        {
+            this.defaultTopSide = newTopSide;
+        }
+
+        /// <summary>
+        /// Sets the default bottom side length of trapezoid
+        /// </summary>
+        /// <param name="newBotSide">New side length</param>
+        public void SetDefaultBotSide(double newBotSide)
+        {
+            this.defaultBotSide = newBotSide;
+        }
+
+        /// <summary>
+        /// Sets the default side length for pentagon
+        /// </summary>
+        /// <param name="newPenSide">New side length</param>
+        public void SetDefaultPentagonSide(double newPenSide)
+        {
+            this.defaultPenside = newPenSide;
+        }
     }
 }

@@ -22,6 +22,11 @@ namespace MidTerm2App
         private double length;
 
         /// <summary>
+        /// Area of circle
+        /// </summary>
+        private double area;
+
+        /// <summary>
         /// The default radius of circle
         /// </summary>
         private double width;
@@ -50,12 +55,56 @@ namespace MidTerm2App
             this.width = width;
             this.color = color;
             this.border = border;
+            this.area = this.GetArea();
         }
 
         /// <summary>
         /// Gets or sets the Name of the Rectangle
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Get the area of shape
+        /// </summary>
+        public override double Area
+        {
+            get
+            {
+                return this.area;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the length of rectangle
+        /// </summary>
+        public double Length
+        {
+            get
+            {
+                return this.length;
+            }
+
+            set
+            {
+                this.length = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the width of rectangle
+        /// </summary>
+        public double Width
+        {
+            get
+            {
+                return this.width;
+            }
+
+            set
+            {
+                this.width = value;
+            }
+        }
 
         /// <summary>
         /// Return the color of the shape
@@ -104,7 +153,7 @@ namespace MidTerm2App
         /// Calculate the area of the Rectangle
         /// </summary>
         /// <returns>The area of the Rectangle</returns>
-        public override double Area()
+        public double GetArea()
         {
             return this.length * this.width;
         }

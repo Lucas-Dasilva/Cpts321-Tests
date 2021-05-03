@@ -22,6 +22,11 @@ namespace MidTerm2App
         private double side;
 
         /// <summary>
+        /// Area of circle
+        /// </summary>
+        private double area;
+
+        /// <summary>
         /// Default color of shape
         /// </summary>
         private string color;
@@ -43,12 +48,29 @@ namespace MidTerm2App
             this.side = side;
             this.color = color;
             this.border = border;
+            this.area = this.GetArea();
         }
 
         /// <summary>
         /// Gets or sets the Name of the Rectangle
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the side length of pentagon
+        /// </summary>
+        public double SideLength
+        {
+            get
+            {
+                return this.side;
+            }
+
+            set
+            {
+                this.side = value;
+            }
+        }
 
         /// <summary>
         /// Return the color of the shape
@@ -85,6 +107,17 @@ namespace MidTerm2App
         }
 
         /// <summary>
+        /// Get the area of shape
+        /// </summary>
+        public override double Area
+        {
+            get
+            {
+                return this.area;
+            }
+        }
+
+        /// <summary>
         /// Gets the name of shape
         /// </summary>
         /// <returns>The string Rectangle</returns>
@@ -97,7 +130,7 @@ namespace MidTerm2App
         /// Calculate the area of the pentagon
         /// </summary>
         /// <returns>The area of the Rectangle</returns>
-        public override double Area()
+        public double GetArea()
         {
             return Math.Round(0.25 * Math.Sqrt(5 * (5 + (2 * Math.Sqrt(5)))) * (this.side * this.side), 2);
         }
@@ -107,7 +140,7 @@ namespace MidTerm2App
         /// </summary>
         public override void Info()
         {
-            Console.WriteLine("Name: {0}\nSide Length: {1}\nArea: {2}\nColor: {3}\nBorder: {4}\n", this.Name, this.side, this.Area(), this.color, this.border);
+            Console.WriteLine("Name: {0}\nSide Length: {1}\nArea: {2}\nColor: {3}\nBorder: {4}\n", this.Name, this.side, this.Area, this.color, this.border);
         }
     }
 }

@@ -29,16 +29,15 @@ namespace MidTerm2App
         public abstract string Border { get; set; }
 
         /// <summary>
+        /// Gets area of shape
+        /// </summary>
+        public abstract double Area { get; }
+
+        /// <summary>
         /// Gets the name of shape
         /// </summary>
         /// <returns>The string of the shape name</returns>
         public abstract string GetName();
-
-        /// <summary>
-        /// Override the area of the shape, depending on what shape it is
-        /// </summary>
-        /// <returns>Returns the area of whatever object it is</returns>
-        public abstract double Area();
 
         /// <summary>
         /// Prints out the info of each shape to console
